@@ -1,0 +1,237 @@
+Started GET "/" for 127.0.0.1 at 2022-12-28 00:49:57 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 394)
+  Rendered layout layouts/application.html.erb (Duration: 694.6ms | Allocations: 95616)
+Completed 200 OK in 717ms (Views: 702.7ms | ActiveRecord: 0.0ms | Allocations: 100141)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 00:50:04 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 2543)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 2782)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 00:58:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 3573.2ms | Allocations: 86717)
+Completed 200 OK in 3592ms (Views: 3578.6ms | ActiveRecord: 0.0ms | Allocations: 89511)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:01:43 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1169.9ms | Allocations: 41708)
+Completed 200 OK in 1179ms (Views: 1176.6ms | ActiveRecord: 0.0ms | Allocations: 41948)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:43:03 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1395.6ms | Allocations: 41673)
+Completed 200 OK in 1451ms (Views: 1431.2ms | Allocations: 41911)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:43:33 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 856.2ms | Allocations: 41708)
+Completed 200 OK in 860ms (Views: 859.0ms | Allocations: 41948)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:45:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1681.5ms | Allocations: 64818)
+Completed 200 OK in 1685ms (Views: 1683.7ms | Allocations: 65067)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:45:26 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 704.2ms | Allocations: 41675)
+Completed 200 OK in 707ms (Views: 706.1ms | Allocations: 41911)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:46:30 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 665.8ms | Allocations: 41709)
+Completed 200 OK in 671ms (Views: 668.3ms | Allocations: 41947)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:46:47 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 805.1ms | Allocations: 41669)
+Completed 200 OK in 807ms (Views: 806.8ms | Allocations: 41904)
+
+
+Started GET "/home" for 127.0.0.1 at 2022-12-28 01:47:22 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/Home" for 127.0.0.1 at 2022-12-28 01:47:26 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/Home"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-28 01:47:29 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 2545)
+Completed 200 OK in 27ms (Views: 26.4ms | Allocations: 2781)
+
+
+  [1m[35m (44.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDiscussions (20221227181022)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "discussions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "author" varchar DEFAULT 'Anon', "body" text NOT NULL, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221227181022"]]
+  [1m[36mTRANSACTION (25.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-27 18:13:04.633684"], ["updated_at", "2022-12-27 18:13:04.633684"]]
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:47:04 +0800
+  
+SyntaxError (/home/drustanyjt/CVWO2023/assignment-forum/react-forum/config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+...   get 'discussions/show', to 'recipes#show'
+...                              ^
+/home/drustanyjt/CVWO2023/assignment-forum/react-forum/config/routes.rb:7: syntax error, unexpected string literal, expecting `do' or '{' or '('
+...ete 'discussions/destroy', to 'recipes#destroy'
+...                              ^
+):
+  
+config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:7: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:7: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:6: syntax error, unexpected string literal, expecting `do' or '{' or '('
+config/routes.rb:7: syntax error, unexpected string literal, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:48:35 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 865.3ms | Allocations: 41818)
+Completed 200 OK in 883ms (Views: 876.6ms | ActiveRecord: 0.0ms | Allocations: 42305)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2022-12-28 02:48:57 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/recipes/1"):
+  
+Started GET "/recipes" for 127.0.0.1 at 2022-12-28 02:49:02 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/recipes"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:49:08 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 2542)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms | Allocations: 2776)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-12-28 02:49:11 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/recipes"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2022-12-28 02:49:17 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2022-12-28 02:50:02 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:50:05 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 694.4ms | Allocations: 41787)
+Completed 200 OK in 706ms (Views: 700.5ms | Allocations: 42266)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-28 02:50:08 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (2.4ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 43ms (Views: 14.7ms | ActiveRecord: 5.8ms | Allocations: 2373)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:50:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 1292.0ms | Allocations: 26201)
+Completed 200 OK in 1309ms (Views: 1299.3ms | ActiveRecord: 0.0ms | Allocations: 28994)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-28 02:51:04 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.3ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 3.1ms | ActiveRecord: 1.4ms | Allocations: 2211)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2022-12-28 02:52:36 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2022-12-28 02:52:41 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-28 02:52:44 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 274.3ms | Allocations: 22505)
+Completed 200 OK in 291ms (Views: 279.2ms | ActiveRecord: 0.0ms | Allocations: 24332)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-28 02:52:46 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (1.5ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 7.0ms | ActiveRecord: 2.7ms | Allocations: 2208)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2022-12-28 02:52:50 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
