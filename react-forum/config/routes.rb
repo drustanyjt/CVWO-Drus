@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'discussions/index'
       post 'discussions/create'
-      get 'discussions/show', to: 'discussions#show'
-      delete 'discussions/destroy', to: 'dsicussions#destroy'
+      get '/show/:id', to: 'discussions#show'
+      delete '/destroy/:id', to: 'discussions#destroy'
     end
   end
   
@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  get '\*path' => 'home#index'
+  get '/*path' => 'home#index'
 end

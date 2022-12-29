@@ -22,10 +22,10 @@ const Discussions = () => {
             <img
               src={discussion.image}
               className="card-img-top"
-              alt={`${discussion.name} image`}
+              alt={`${discussion.title} image`}
             />
             <div className="card-body">
-              <h5 className="card-title">{discussion.name}</h5>
+              <h5 className="card-title">{discussion.title}</h5>
               <Link to={`/discussion/${discussion.id}`} className="btn custom-button">
                 View Discussion
               </Link>
@@ -47,7 +47,7 @@ const Discussions = () => {
             <div className="container py-5">
               <h1 className="display-4">Discussions for every occasion</h1>
               <p className="lead text-muted">
-                We’ve pulled together our most popular recipes, our latest
+                We’ve pulled together our most popular discussion, our latest
                 additions, and our editor’s picks, so there’s sure to be something
                 tempting for you to try.
               </p>

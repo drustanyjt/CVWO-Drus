@@ -25,7 +25,7 @@ class Api::V1::DiscussionsController < ApplicationController
 
   private
   def discussion_params
-    params.permit(:title, :author, :body, :image)
+    params.require(:discussion).permit(:title, :author, :body, :image)
   end
 
   def set_discussion

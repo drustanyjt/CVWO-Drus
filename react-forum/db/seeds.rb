@@ -10,6 +10,5 @@
         title: "Discussion ##{i + 1}",
         author: "Johnny #{i + 1}",
         body: "I have a bunch of text for you to read",
-        image: "",
     }])
 end

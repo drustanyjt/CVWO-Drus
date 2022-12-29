@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_27_181022) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_28_235554) do
   create_table "discussions", force: :cascade do |t|
     t.string "title", null: false
     t.string "author", default: "Anon"
     t.text "body", null: false
-    t.string "image"
+    t.string "image", default: "https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA25015.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

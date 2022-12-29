@@ -1572,7 +1572,7 @@
             }
             return dispatcher.useContext(Context2);
           }
-          function useState6(initialState) {
+          function useState8(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1584,7 +1584,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect5(create, deps) {
+          function useEffect6(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -2364,7 +2364,7 @@
           exports.useContext = useContext3;
           exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect5;
+          exports.useEffect = useEffect6;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -2372,7 +2372,7 @@
           exports.useMemo = useMemo3;
           exports.useReducer = useReducer;
           exports.useRef = useRef3;
-          exports.useState = useState6;
+          exports.useState = useState8;
           exports.useSyncExternalStore = useSyncExternalStore2;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2868,9 +2868,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React8 = require_react();
+          var React10 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React10.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4391,7 +4391,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React8.Children.forEach(props.children, function(child) {
+                  React10.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12552,7 +12552,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React8.Component().refs;
+          var emptyRefsObject = new React10.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -34728,14 +34728,14 @@
   defineJQueryPlugin(Toast);
 
   // app/javascript/components/index.jsx
-  var import_react5 = __toESM(require_react());
+  var import_react7 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // app/javascript/components/App.jsx
-  var import_react4 = __toESM(require_react());
+  var import_react6 = __toESM(require_react());
 
   // app/javascript/routes/index.jsx
-  var import_react3 = __toESM(require_react());
+  var import_react5 = __toESM(require_react());
 
   // node_modules/react-router-dom/dist/index.js
   var React2 = __toESM(require_react());
@@ -35504,6 +35504,13 @@
       (!!options.replace ? navigator2.replace : navigator2.push)(path, options.state, options);
     }, [basename, navigator2, routePathnamesJson, locationPathname]);
     return navigate;
+  }
+  function useParams() {
+    let {
+      matches
+    } = React.useContext(RouteContext);
+    let routeMatch = matches[matches.length - 1];
+    return routeMatch ? routeMatch.params : {};
   }
   function useResolvedPath(to, _temp2) {
     let {
@@ -36429,26 +36436,168 @@
       {
         src: discussion.image,
         className: "card-img-top",
-        alt: `${discussion.name} image`
+        alt: `${discussion.title} image`
       }
-    ), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, discussion.name), /* @__PURE__ */ import_react2.default.createElement(Link, { to: `/discussion/${discussion.id}`, className: "btn custom-button" }, "View Discussion")))));
+    ), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, discussion.title), /* @__PURE__ */ import_react2.default.createElement(Link, { to: `/discussion/${discussion.id}`, className: "btn custom-button" }, "View Discussion")))));
     const noDiscussion = /* @__PURE__ */ import_react2.default.createElement("div", { className: "vw-100 vh-50 d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react2.default.createElement("h4", null, "No discussions yet. Why not ", /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/new_discussion" }, "create one")));
-    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "We\u2019ve pulled together our most popular recipes, our latest additions, and our editor\u2019s picks, so there\u2019s sure to be something tempting for you to try."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
+    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "We\u2019ve pulled together our most popular discussion, our latest additions, and our editor\u2019s picks, so there\u2019s sure to be something tempting for you to try."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
   };
   var Discussions_default = Discussions;
 
+  // app/javascript/components/Discussion.jsx
+  var import_react3 = __toESM(require_react());
+  var Discussion = () => {
+    const params = useParams();
+    const navigate = useNavigate();
+    const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
+    (0, import_react3.useEffect)(() => {
+      const url = `/api/v1/show/${params.id}`;
+      fetch(url).then((res) => {
+        if (res.ok)
+          return res.json();
+        throw new Error("Network response not ok!");
+      }).then((res) => setDiscussion(res)).catch(() => navigate("/discussions"));
+    }, [params.id]);
+    const addHtmlEntities = (str) => {
+      return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    };
+    const deleteDiscussion = () => {
+      const url = `/api/v1/destroy/${params.id}`;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Network response was not ok");
+      }).then(() => navigate("/discussions")).catch((err) => console.log(err.message));
+    };
+    const commentsList = () => {
+      let commentsListRes = "There are no comments";
+      const demoComments = [
+        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures."),
+        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures."),
+        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures.")
+      ];
+      const foundCommentsList = demoComments;
+      if (foundCommentsList.length > 0) {
+        commentsListRes = foundCommentsList;
+      }
+      return commentsListRes;
+    };
+    const discussionBody = addHtmlEntities(discussion.body);
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { class: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { class: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { class: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-8" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
+      __html: `${discussionBody}`
+    } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-4" }, /* @__PURE__ */ import_react3.default.createElement(
+      "button",
+      {
+        type: "button",
+        className: "btn btn-danger",
+        onClick: deleteDiscussion
+      },
+      "Delete Discussion"
+    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList()))), /* @__PURE__ */ import_react3.default.createElement(Link, { to: "/discussions", className: "btn btn-link" }, "Back to discussions")));
+  };
+  var Discussion_default = Discussion;
+
+  // app/javascript/components/NewDiscussion.jsx
+  var import_react4 = __toESM(require_react());
+  var NewDiscussion = () => {
+    const navigate = useNavigate();
+    const [title, setTitle] = (0, import_react4.useState)("");
+    const [body, setBody] = (0, import_react4.useState)("");
+    const [author, setAuthor] = (0, import_react4.useState)("");
+    const stripHtmlEntities = (str) => {
+      return String(str).replace(/\n/g, "<br> <br>").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    const onChange = (event, setFunction) => {
+      setFunction(event.target.value);
+    };
+    const onSubmit = (event) => {
+      event.preventDefault();
+      const url = "api/v1/discussions/create";
+      if (title.length == 0 || body.length == 0) {
+        return;
+      }
+      const jsonBody = author.length > 0 ? {
+        title,
+        author,
+        body: stripHtmlEntities(body)
+      } : {
+        title,
+        body: stripHtmlEntities(body)
+      };
+      ;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(jsonBody)
+      }).then((res) => {
+        console.log("raw response");
+        console.log(res);
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Network response was not ok.");
+      }).then((res) => {
+        console.log("Json res");
+        console.log(res);
+        console.log(res.id);
+        navigate(`/discussion/${res.id}`);
+      }).catch((error2) => {
+        console.log(error2.message);
+      });
+    };
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container mt-5" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "col-sm-12 col-lg-6 offset-lg-3" }, /* @__PURE__ */ import_react4.default.createElement("h1", { className: "font-weight-normal mb-5" }, "Add a new discussion"), /* @__PURE__ */ import_react4.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "discussionTitle" }, "Discussion title"), /* @__PURE__ */ import_react4.default.createElement(
+      "input",
+      {
+        type: "text",
+        name: "title",
+        id: "discussionTitle",
+        className: "form-control",
+        required: true,
+        onChange: (event) => onChange(event, setTitle)
+      }
+    )), /* @__PURE__ */ import_react4.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "discussionAuthor" }, "Discussion author"), /* @__PURE__ */ import_react4.default.createElement(
+      "input",
+      {
+        type: "text",
+        name: "author",
+        id: "discussionAuthor",
+        className: "form-control",
+        onChange: (event) => onChange(event, setAuthor)
+      }
+    )), /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "discussionBody" }, "Discussion body"), /* @__PURE__ */ import_react4.default.createElement(
+      "textarea",
+      {
+        name: "title",
+        id: "discussionBody",
+        rows: "10",
+        className: "form-control",
+        required: true,
+        onChange: (event) => onChange(event, setBody)
+      }
+    ), /* @__PURE__ */ import_react4.default.createElement("button", { type: "submit", className: "btn custom-button mt-3" }, "Create discussion"), /* @__PURE__ */ import_react4.default.createElement(Link, { to: "/discussions", className: "btn btn-link mt-3" }, "Back to discussions")))));
+  };
+  var NewDiscussion_default = NewDiscussion;
+
   // app/javascript/routes/index.jsx
-  var routes_default = /* @__PURE__ */ import_react3.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react3.default.createElement(Routes, null, /* @__PURE__ */ import_react3.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react3.default.createElement(Home_default, null) }), /* @__PURE__ */ import_react3.default.createElement(Route, { path: "/discussions", element: /* @__PURE__ */ import_react3.default.createElement(Discussions_default, null) })));
+  var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(Home_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussions", element: /* @__PURE__ */ import_react5.default.createElement(Discussions_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion/:id", element: /* @__PURE__ */ import_react5.default.createElement(Discussion_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion", element: /* @__PURE__ */ import_react5.default.createElement(NewDiscussion_default, null) })));
 
   // app/javascript/components/App.jsx
-  var App_default = (props) => /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, routes_default);
+  var App_default = (props) => /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
 
   // app/javascript/components/index.jsx
   document.addEventListener("turbo:load", () => {
     const root = (0, import_client.createRoot)(
       document.body.appendChild(document.createElement("div"))
     );
-    root.render(/* @__PURE__ */ import_react5.default.createElement(App_default, null));
+    root.render(/* @__PURE__ */ import_react7.default.createElement(App_default, null));
   });
 })();
 /*! Bundled license information:
