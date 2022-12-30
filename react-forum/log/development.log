@@ -5061,3 +5061,109 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms | Allocations: 2105)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-30 02:25:40 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 394)
+  Rendered layout layouts/application.html.erb (Duration: 598.6ms | Allocations: 134509)
+Completed 200 OK in 603ms (Views: 600.2ms | ActiveRecord: 0.0ms | Allocations: 139011)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:25:42 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 8411)
+
+
+Started GET "/api/v1/show/10" for 127.0.0.1 at 2022-12-30 02:25:46 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2913)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:25:48 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 2111)
+
+
+Started GET "/api/v1/show/1" for 127.0.0.1 at 2022-12-30 02:25:50 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 694)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:25:57 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.2ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 2111)
+
+
+Started GET "/api/v1/show/6" for 127.0.0.1 at 2022-12-30 02:25:58 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 695)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:26:01 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 2101)
+
+
+Started GET "/api/v1/show/8" for 127.0.0.1 at 2022-12-30 02:26:02 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"8"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 695)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:26:05 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 2101)
+
+
+Started GET "/api/v1/show/5" for 127.0.0.1 at 2022-12-30 02:26:07 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 695)
+
+
+Started DELETE "/api/v1/destroy/5" for 127.0.0.1 at 2022-12-30 02:26:07 +0800
+Processing by Api::V1::DiscussionsController#destroy as */*
+  Parameters: {"id"=>"5", "discussion"=>{}}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:22:in `destroy'
+  [1m[36mDiscussion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:22:in `destroy'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:22:in `destroy'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 2348)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 02:26:07 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1965)
+
+
