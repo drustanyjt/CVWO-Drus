@@ -5167,3 +5167,21 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1965)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-30 11:49:46 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 395)
+  Rendered layout layouts/application.html.erb (Duration: 1499.1ms | Allocations: 129643)
+Completed 200 OK in 1533ms (Views: 1512.6ms | ActiveRecord: 0.0ms | Allocations: 134146)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 12:22:32 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.8ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 34ms (Views: 12.3ms | ActiveRecord: 1.5ms | Allocations: 9347)
+
+
