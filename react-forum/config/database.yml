@@ -9,6 +9,11 @@
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #   timeout: 5000
 
+dev_default: &dev_default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -16,13 +21,17 @@ default: &default
   timeout: 5000
 
 
+development:
+  <<: *dev_default
+  database: db/development.sqlite3
+
 # development:
 #   <<: *default
-#   database: db/development.sqlite3
+#   database: db/development
 
 test:
   <<: *default
-  database: mysite_test
+  database: db/test
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -38,6 +47,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: mysite_production
-  username: mysite
-  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  database: drus_db
+  username: drus_db_user
+  password: <%= ENV['MYSITE_DB_PASSWORD'] %>
