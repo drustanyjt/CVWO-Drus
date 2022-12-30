@@ -5185,3 +5185,28 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 34ms (Views: 12.3ms | ActiveRecord: 1.5ms | Allocations: 9347)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-30 13:48:52 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 26054)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.0ms | Allocations: 28826)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-30 13:48:56 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 8014)
+
+
+Started GET "/api/v1/show/10" for 127.0.0.1 at 2022-12-30 14:35:18 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 10038)
+
+
