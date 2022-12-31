@@ -40,13 +40,13 @@ test:
   <<: *dev_default
   database: db/test.sqlite3
 
-production:
-  <<: *dev_default
-  database: db/production.sqlite3
-
 # production:
-#   <<: *default
-#   url: <%= ENV['DATABASE_URL'] %>
-#   database: drus_db
-#   username: drus_db_user
-#   password: <%= ENV['MYSITE_DB_PASSWORD'] %>
+#   <<: *dev_default
+#   database: db/production.sqlite3
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: drus_db
+  username: drus_db_user
+  password: <%= ENV['MYSITE_DB_PASSWORD'] %>
