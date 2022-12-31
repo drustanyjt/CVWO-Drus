@@ -5344,3 +5344,20 @@ Processing by Api::V1::DiscussionsController#show as */*
 Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 9471)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-31 11:09:56 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1487)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 4259)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2022-12-31 11:09:57 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 7880)
+
+
