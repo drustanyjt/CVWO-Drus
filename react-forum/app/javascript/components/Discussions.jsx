@@ -36,7 +36,7 @@ const Discussions = () => {
       const noDiscussion = (
         <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
           <h4>
-            No discussions yet. Why not <Link to="/new_discussion">create one</Link>
+            No discussions yet. Why not <Link to="/discussion">create one</Link>
           </h4>
         </div>
       );
