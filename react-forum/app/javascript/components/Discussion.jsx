@@ -5,6 +5,7 @@ const Discussion = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [discussion, setDiscussion] = useState({ body: ""});
+    const [comments, setComment] = useState([]);
 
     useEffect(() => {
         const url = `/api/v1/discussions/show/${params.id}`;
@@ -15,6 +16,17 @@ const Discussion = () => {
             })
             .then((res) => setDiscussion(res))
             .catch(() => navigate("/discussions"));
+    }, [params.id]);
+
+    useEffect(() => {
+        const url = `/api/v1/comments/show/${params.id}`;
+        fetch(url)
+            .then((res) => {
+                if (res.ok) return res.json();
+                throw new Error("Network response not ok!");
+            })
+            .then((res) => setComment(res))
+            .catch(() => navigate("/"));
     }, [params.id]);
 
     const addHtmlEntities = (str) => {
@@ -42,40 +54,14 @@ const Discussion = () => {
     }
 
     const commentsList = () => {
-        let commentsListRes = "There are no comments";
-
-        const demoComments = [
-            (<li className="list-group-item"> 
-            I hate really like Mathematics as well maybe one day when I am a 200
-             year old tortoise with a broken back and a knack for eating
-             pulled chicken everyday as if it was my last meal. I will strive
-             to live for a hundered more years, whther you like it or not even 
-             if you do not support me. I will be a master of improvisation, a skilled chef 
-             at the  art of making nonsensical words come together as if they were poems, just 
-             likt the michelin-starred chefs using rubbish to make treasures.</li>),
-             (<li className="list-group-item"> 
-             I really like Mathematics as well maybe one day when I am a 200
-              year old tortoise with a broken back and a knack for eating
-              pulled chicken everyday as if it was my last meal. I will strive
-              to live for a hundered more years, whther you like it or not even 
-              if you do not support me. I will be a master of improvisation, a skilled chef 
-              at the  art of making nonsensical words come together as if they were poems, just 
-              likt the michelin-starred chefs using rubbish to make treasures.</li>),
-              (<li className="list-group-item"> 
-              I really like Mathematics as well maybe one day when I am a 200
-               year old tortoise with a broken back and a knack for eating
-               pulled chicken everyday as if it was my last meal. I will strive
-               to live for a hundered more years, whther you like it or not even 
-               if you do not support me. I will be a master of improvisation, a skilled chef 
-               at the  art of making nonsensical words come together as if they were poems, just 
-               likt the michelin-starred chefs using rubbish to make treasures.</li>),
-        ];
-
-        const foundCommentsList = demoComments;
+        let noComments = "There are no comments";
         
-        if (foundCommentsList.length > 0) {
-            commentsListRes = foundCommentsList;
-        }
+        const allComments = comments.map((comment) => (
+            <li className="list-group-item">
+               {comment.text} 
+            </li>
+        )) 
+        commentsListRes = comments.length >= 0 ? allComments : noComments;
 
         return commentsListRes;
     }

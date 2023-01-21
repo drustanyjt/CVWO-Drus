@@ -1,34 +1,35 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_discussion, only: %i[show destroy]
+  before_action :set_comment, only: %i[destroy]
   def index
     comments = Comment.all.order(created_at: :desc)
     render json: comments 
   end
 
   def create
-    discussion = Discussion.create!(discussion_params)
-    if discussion
-      render json: discussion
+    comment = Comment.create!(comment_params)
+    if comment
+      render json: comment
     else
-      render json: discussion.errors
+      render json: comment.errors
     end
   end
 
   def show
-    render json: @discussion
+    comments = Comment.where("discussion_id = ?", params[:discussion_id]).order(created_at: :desc)
+    render json: comments 
   end
 
   def destroy
-    @discussion&.destroy
-    render json: { message: 'discussion deleted!'}
+    @comment&.destroy
+    render json: { message: 'comment deleted!'}
   end
 
   private
-  def discussion_params
-    params.require(:comment).permit(:text, :user_id, :discussion_id)
+  def comment_params
+    params.require(:comment).permit(:text, :user_id, :comment_id)
   end
 
-  def set_discussion
-    @discussion = Discussion.find(params[:id])
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 end

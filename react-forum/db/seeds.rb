@@ -5,10 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-9.times do |i|
-    Discussion.create([{
-        title: "Discussion ##{i + 1}",
-        author: "Johnny #{i + 1}",
-        body: "I have a bunch of text for you to read",
+# 1.times do |i|
+#     Discussion.create([{
+#         title: "Discussion ##{i + 1}",
+#         author: "Johnny #{i + 1}",
+#         body: "I have a bunch of text for you to read",
+#     }])
+# end
+# User.create([{
+#     name: "Anon"
+# }])
+5.times do |j|
+    Comment.create([{
+        text: "Comment ##{j + 1}",
+        user_id: 1, 
+        discussion_id: 10,
     }])
 end

@@ -1,34 +1,34 @@
 class Api::V1::UsersController < ApplicationController
-  # before_action :set_discussion, only: %i[show destroy]
+  before_action :set_user, only: %i[show destroy]
   def index
-    comments = Comment.all.order(created_at: :desc)
-    render json: comments 
+    users = User.all.order(created_at: :desc)
+    render json: users 
   end
 
   def create
-    discussion = Discussion.create!(discussion_params)
-    if discussion
-      render json: discussion
+    user = User.create!(user_params)
+    if user
+      render json: user
     else
-      render json: discussion.errors
+      render json: user.errors
     end
   end
 
   def show
-    render json: @discussion
+    render json: @user
   end
 
   def destroy
-    @discussion&.destroy
-    render json: { message: 'discussion deleted!'}
+    @user&.destroy
+    render json: { message: 'user deleted!'}
   end
 
   private
-  def discussion_params
-    params.require(:comment).permit(:text, :user_id, :discussion_id)
+  def user_params
+    params.require(:user).permit(:name, :user_id)
   end
 
-  def set_discussion
-    @discussion = Discussion.find(params[:id])
+  def set_user
+    @user = User.find(params[:id])
   end
 end
