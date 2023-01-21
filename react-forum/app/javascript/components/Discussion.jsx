@@ -22,7 +22,7 @@ const Discussion = () => {
     };
 
     const deleteDiscussion = () => {
-        const url = `/api/v1/destroy/${params.id}`;
+        const url = `/api/v1/discussions/destroy/${params.id}`;
         
         fetch(url, {
             method: "DELETE",

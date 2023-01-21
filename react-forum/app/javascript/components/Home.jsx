@@ -11,7 +11,7 @@ const Counter = () => {
             <div className="container secondary-color">
                 <h1 className="display-4">Food Recipes</h1>
                 <p className="lead">
-                A curated list of recipes for the best homemade meal and delicacies.
+                A BIG curated list of recipes for the best homemade meal and delicacies.
                 </p>
                 <hr className="my-4" />
                 <Link

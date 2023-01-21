@@ -6874,3 +6874,769 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1950)
 
 
+Started GET "/" for 127.0.0.1 at 2023-01-21 10:56:33 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1455)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 4227)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:56:47 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 7879)
+
+
+Started GET "/api/v1/show/10" for 127.0.0.1 at 2023-01-21 10:56:48 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 9929)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:56:54 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1839)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-21 10:58:28 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 473.8ms | Allocations: 69043)
+Completed 200 OK in 477ms (Views: 474.8ms | ActiveRecord: 0.0ms | Allocations: 71815)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:30 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 9001)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:31 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 21324)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 23153)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:31 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:33 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2504)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2742)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:33 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:33 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2515)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 2751)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:33 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2521)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2755)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2520)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2754)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2511)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2745)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2515)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 2750)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:35 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2505)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 2739)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:35 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1831)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:58:35 +0800
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"api/v1/discussions/show/10"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2562)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 2796)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:35 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 10:58:36 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2505)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2734)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:36 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-21 10:58:46 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 188.1ms | Allocations: 46978)
+Completed 200 OK in 188ms (Views: 188.3ms | ActiveRecord: 0.0ms | Allocations: 47205)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:58:48 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1830)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 10:59:44 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 5324)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 10:59:46 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1903)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:05:23 +0800
+  
+SyntaxError (/home/drustan/CVWO2023/CVWO-Drus/react-forum/config/routes.rb:17: syntax error, unexpected end-of-input):
+  
+config/routes.rb:17: syntax error, unexpected end-of-input
+config/routes.rb:17: syntax error, unexpected end-of-input
+config/routes.rb:17: syntax error, unexpected end-of-input
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:23 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:24 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:24 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:25 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:25 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:05:25 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/discussions/index"):
+  
+Started GET "/" for 127.0.0.1 at 2023-01-21 11:05:56 +0800
+  
+SyntaxError (/home/drustan/CVWO2023/CVWO-Drus/react-forum/config/routes.rb:17: syntax error, unexpected end-of-input):
+  
+config/routes.rb:17: syntax error, unexpected end-of-input
+config/routes.rb:17: syntax error, unexpected end-of-input
+config/routes.rb:17: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2023-01-21 11:06:12 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 203.0ms | Allocations: 41947)
+Completed 200 OK in 204ms (Views: 203.5ms | Allocations: 42441)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-21 11:06:13 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2525)
+Completed 200 OK in 2ms (Views: 2.3ms | Allocations: 2754)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:14 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 7993)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:26 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:26 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 4776)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:27 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1838)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:28 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:28 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 4759)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.2ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:35 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:35 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:06:36 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2624)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 3116)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:36 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1828)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1831)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:37 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1831)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:38 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:39 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:06:39 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/8" for 127.0.0.1 at 2023-01-21 11:06:40 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:40 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-21 11:06:43 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2517)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:06:44 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1828)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:06:53 +0800
+  
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  
+config/routes.rb:5:in `block (4 levels) in <main>'
+config/routes.rb:4:in `block (3 levels) in <main>'
+config/routes.rb:3:in `block (2 levels) in <main>'
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:07:11 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:07:13 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:07:14 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/discussions"):
+  
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:07:19 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2609)
+Completed 200 OK in 2ms (Views: 1.9ms | Allocations: 3102)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:07:19 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 4758)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-21 11:07:23 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2502)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 2732)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:07:24 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:07:25 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:07:25 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:09:52 +0800
+  
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  
+config/routes.rb:7:in `block (4 levels) in <main>'
+config/routes.rb:4:in `block (3 levels) in <main>'
+config/routes.rb:3:in `block (2 levels) in <main>'
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:10:28 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2797)
+Completed 200 OK in 5ms (Views: 5.1ms | Allocations: 3289)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:10:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 4334)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:10:30 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:10:30 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:10:30 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:10:30 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1829)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:10:58 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2606)
+Completed 200 OK in 2ms (Views: 1.7ms | Allocations: 3096)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:10:58 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 4760)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:11:01 +0800
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Discussions):
+  
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:11:01 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1829)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-21 11:12:28 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2606)
+Completed 200 OK in 2ms (Views: 1.8ms | Allocations: 3096)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:12:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 4757)
+
+
+Started GET "/api/v1/discussions/show/10" for 127.0.0.1 at 2023-01-21 11:12:30 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2492)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-21 11:12:31 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1828)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20230121033621)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text NOT NULL, "user_id" integer, "discussion_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_750d1a8a36"
+FOREIGN KEY ("discussion_id")
+  REFERENCES "discussions" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_discussion_id" ON "comments" ("discussion_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230121033621"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -36405,7 +36405,7 @@
     const [count, setCount] = (0, import_react.useState)(0);
     const increase = () => setCount(count + 1);
     const decrease = () => setCount(count - 1);
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A curated list of recipes for the best homemade meal and delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement(
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of recipes for the best homemade meal and delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement(
       Link,
       {
         to: "/discussions",
@@ -36462,7 +36462,7 @@
       return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     };
     const deleteDiscussion = () => {
-      const url = `/api/v1/destroy/${params.id}`;
+      const url = `/api/v1/discussions/destroy/${params.id}`;
       fetch(url, {
         method: "DELETE",
         headers: {

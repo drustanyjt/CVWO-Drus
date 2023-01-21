@@ -1,3 +1,4 @@
 */tmp/cache/*
 */tmp/pids/server.pid
 */config/master.key
+*/public/assets/*
