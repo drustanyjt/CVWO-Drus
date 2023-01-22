@@ -1,21 +1,23 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: %i[show destroy]
+  before_action :set_user, only: %i[destroy]
   def index
     users = User.all.order(created_at: :desc)
     render json: users 
   end
 
   def create
-    user = User.create!(user_params)
-    if user
-      render json: user
+    # user = User.create!(user_params)
+    if User.exists?(:name => params[:user][:name])
+      render json: User.find_by(name: params[:user][:name])
     else
-      render json: user.errors
+      user = User.create!(user_params)
+      # render json: user.errors
     end
   end
 
-  def show
-    render json: @user
+  def read
+    if User.exists?(:name => params[:user][:name])
+    end 
   end
 
   def destroy
@@ -25,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :user_id)
+    params.require(:user).permit(:name)
   end
 
   def set_user

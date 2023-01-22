@@ -23468,6 +23468,201 @@
     }
   });
 
+  // node_modules/react-client-session/dist/ReactSession.js
+  var require_ReactSession = __commonJS({
+    "node_modules/react-client-session/dist/ReactSession.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports["default"] = void 0;
+      var _react = _interopRequireDefault(require_react());
+      function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : { "default": obj };
+      }
+      var ReactSession4 = function() {
+        var SESSION_OBJECT_NAME = "__react_session__";
+        var COOKIE_EXPIRATION_DAYS = 7;
+        var SessionWriter = null;
+        var sessionData = {};
+        var get = function get2(key) {
+          return SessionWriter.get(key);
+        };
+        var set = function set2(key, value) {
+          SessionWriter.set(key, value);
+        };
+        var remove = function remove2(key) {
+          SessionWriter.remove(key);
+        };
+        var setStoreType = function setStoreType2(storeType) {
+          if (!["memory", "cookie", "localstorage", "sessionstorage"].includes(storeType.toLowerCase())) {
+            throw "Unknown store type";
+          }
+          SessionWriter = getSessionWriter(storeType);
+        };
+        var getSessionWriter = function getSessionWriter2(storeType) {
+          switch (storeType.toLowerCase()) {
+            case "memory":
+              return MemoryWriter;
+            case "cookie":
+              return CookieWriter;
+            case "localstorage":
+              return LocalStorageWriter;
+            case "sessionstorage":
+              return SessionStorageWriter;
+            default:
+              return MemoryWriter;
+          }
+        };
+        var MemoryWriter = {
+          set: function set2(key, value) {
+            sessionData[key] = value;
+          },
+          get: function get2(key) {
+            return sessionData[key];
+          },
+          remove: function remove2(key) {
+            if (sessionData.hasOwnProperty(key)) {
+              delete sessionData[key];
+            }
+          }
+        };
+        var LocalStorageWriter = {
+          set: function set2(key, value) {
+            setItem(localStorage, key, value);
+          },
+          get: function get2(key) {
+            return getItem(localStorage, key);
+          },
+          remove: function remove2(key) {
+            removeItem(localStorage, key);
+          }
+        };
+        var SessionStorageWriter = {
+          set: function set2(key, value) {
+            setItem(sessionStorage, key, value);
+          },
+          get: function get2(key) {
+            return getItem(sessionStorage, key);
+          },
+          remove: function remove2(key) {
+            removeItem(sessionStorage, key);
+          }
+        };
+        var CookieWriter = {
+          set: function set2(key, value) {
+            setCookieParam(key, value, COOKIE_EXPIRATION_DAYS);
+          },
+          get: function get2(key) {
+            return getCookieParam(key);
+          },
+          remove: function remove2(key) {
+            deleteCookieParam(key);
+          }
+        };
+        SessionWriter = MemoryWriter;
+        var setItem = function setItem2(storageObject, key, value) {
+          var item = getStorageItem(storageObject);
+          item[key] = value;
+          setStorageItem(storageObject, item);
+        };
+        var getItem = function getItem2(storageObject, key) {
+          var item = getStorageItem(storageObject);
+          return item[key];
+        };
+        var removeItem = function removeItem2(storageObject, key) {
+          var item = getStorageItem(storageObject);
+          delete item[key];
+          setStorageItem(storageObject, item);
+        };
+        var getStorageItem = function getStorageItem2(storageObject) {
+          var item = storageObject.getItem(SESSION_OBJECT_NAME);
+          return item ? JSON.parse(item) : {};
+        };
+        var setStorageItem = function setStorageItem2(storageObject, item) {
+          storageObject.setItem(SESSION_OBJECT_NAME, JSON.stringify(item));
+        };
+        var getUpdatedTime = function getUpdatedTime2(numDays) {
+          var now2 = new Date();
+          now2.setTime(now2.getTime() + numDays * 24 * 60 * 60 * 1e3);
+          return now2.toUTCString();
+        };
+        var setCookieParam = function setCookieParam2(key, value, numDays) {
+          var expires = "expires=" + getUpdatedTime(COOKIE_EXPIRATION_DAYS);
+          var existingCookie = getCookie(SESSION_OBJECT_NAME);
+          var cookieJson = {};
+          if (existingCookie) {
+            cookieJson = JSON.parse(existingCookie);
+          }
+          cookieJson[key] = value;
+          var cookieStr = SESSION_OBJECT_NAME + "=" + JSON.stringify(cookieJson) + ";";
+          cookieStr += expires + ";path=/";
+          document.cookie = cookieStr;
+        };
+        var getCookieParam = function getCookieParam2(key) {
+          var cookieParam = JSON.parse(getCookie(SESSION_OBJECT_NAME));
+          return cookieParam[key];
+        };
+        var getCookie = function getCookie2(cookieName) {
+          var name = cookieName + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var cookies = decodedCookie.split(";");
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            while (cookie.charAt(0) == " ") {
+              cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(name) == 0) {
+              return cookie.substring(name.length, cookie.length);
+            }
+          }
+          return "";
+        };
+        var deleteCookieParam = function deleteCookieParam2(key) {
+          var expires = "expires=" + getUpdatedTime(COOKIE_EXPIRATION_DAYS);
+          var existingCookie = getCookie(SESSION_OBJECT_NAME);
+          var cookieJson = {};
+          if (existingCookie) {
+            cookieJson = JSON.parse(existingCookie);
+            delete cookieJson[key];
+          }
+          var cookieStr = SESSION_OBJECT_NAME + "=" + JSON.stringify(cookieJson) + ";";
+          cookieStr += expires + ";path=/";
+          document.cookie = cookieStr;
+        };
+        return {
+          getCookie,
+          setStoreType,
+          remove,
+          get,
+          set
+        };
+      }();
+      var _default = ReactSession4;
+      exports["default"] = _default;
+    }
+  });
+
+  // node_modules/react-client-session/dist/App.js
+  var require_App = __commonJS({
+    "node_modules/react-client-session/dist/App.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      Object.defineProperty(exports, "ReactSession", {
+        enumerable: true,
+        get: function get() {
+          return _ReactSession["default"];
+        }
+      });
+      var _ReactSession = _interopRequireDefault(require_ReactSession());
+      function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : { "default": obj };
+      }
+    }
+  });
+
   // node_modules/@hotwired/turbo/dist/turbo.es2017-esm.js
   (function() {
     if (window.Reflect === void 0 || window.customElements === void 0 || window.customElements.polyfillWrapFlushCallback) {
@@ -36401,19 +36596,58 @@
 
   // app/javascript/components/Home.jsx
   var import_react = __toESM(require_react());
+  var import_react_client_session = __toESM(require_App());
   var Counter = () => {
     const [count, setCount] = (0, import_react.useState)(0);
+    const [userName, setUserName] = (0, import_react.useState)("");
+    const navigate = useNavigate();
     const increase = () => setCount(count + 1);
     const decrease = () => setCount(count - 1);
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of recipes for the best homemade meal and delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement(
-      Link,
+    const storeUserInfo = () => {
+      const url = `/api/v1/users/create`;
+      const jsonBody = {
+        name: userName
+      };
+      console.log(userName);
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(jsonBody)
+      }).then(
+        (res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error("could not create user");
+          }
+        }
+      ).then((res) => {
+        console.log(res.id);
+        import_react_client_session.ReactSession.set("user_name", res.name);
+        import_react_client_session.ReactSession.set("user_id", res.id);
+        navigate(`/discussions`);
+      });
+    };
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Not! Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of discussions for the best vim-made meals and react-delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement("form", null, /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "inputUserName", className: "col-sm-2 col-form-label" }, "Name:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-sm-10" }, /* @__PURE__ */ import_react.default.createElement(
+      "input",
       {
-        to: "/discussions",
+        type: "string",
+        name: "userName",
+        className: "form-control",
+        id: "inputUserName",
+        onChange: (e) => setUserName(e.target.value)
+      }
+    )))), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement(
+      "button",
+      {
         className: "btn btn-lg custom-button",
-        role: "button"
+        role: "button",
+        onClick: storeUserInfo
       },
       "View Discussions"
-    ), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, /* @__PURE__ */ import_react.default.createElement("button", { onClick: decrease, className: "btn btn-lg counter-button" }, "-"), /* @__PURE__ */ import_react.default.createElement("span", null, " ", count, " "), /* @__PURE__ */ import_react.default.createElement("button", { onClick: increase, className: "btn btn-lg counter-button" }, "+")))));
+    ), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null)), /* @__PURE__ */ import_react.default.createElement("div", { className: "container primary-color" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, /* @__PURE__ */ import_react.default.createElement("button", { onClick: decrease, className: "btn btn-lg counter-button" }, "-"), /* @__PURE__ */ import_react.default.createElement("span", null, " ", count, " "), /* @__PURE__ */ import_react.default.createElement("button", { onClick: increase, className: "btn btn-lg counter-button" }, "+")))));
   };
   var Home_default = Counter;
 
@@ -36446,13 +36680,17 @@
 
   // app/javascript/components/Discussion.jsx
   var import_react3 = __toESM(require_react());
+  var import_react_client_session2 = __toESM(require_App());
   var Discussion = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
     const [comments, setComment] = (0, import_react3.useState)([]);
     const [text, setText] = (0, import_react3.useState)("");
-    const [userId, setUserId] = (0, import_react3.useState)("");
+    const [userId, setUserId] = (0, import_react3.useState)(0);
+    (0, import_react3.useEffect)(() => {
+      setUserId(import_react_client_session2.ReactSession.get("user_id"));
+    });
     (0, import_react3.useEffect)(() => {
       const url = `/api/v1/discussions/show/${params.id}`;
       fetch(url).then((res) => {
@@ -36491,8 +36729,6 @@
         },
         body: JSON.stringify(jsonBody)
       }).then((res) => {
-        console.log("raw response");
-        console.log(res);
         if (res.ok) {
           return res.json();
         }
@@ -36500,7 +36736,6 @@
       }).then((res) => {
         console.log("Json res");
         console.log(res);
-        console.log(res.id);
         window.location.reload(false);
       }).catch((error2) => {
         console.log(error2.message);
@@ -36508,6 +36743,20 @@
     };
     const addHtmlEntities = (str) => {
       return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/\n/g, "<br> <br>");
+    };
+    const deleteComment = (comment_id) => {
+      const url = `/api/v1/comments/destroy/${comment_id}`;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Network response was not ok");
+      }).then(window.location.reload(false)).catch((err) => console.log(err.message));
     };
     const deleteDiscussion = () => {
       const url = `/api/v1/discussions/destroy/${params.id}`;
@@ -36525,7 +36774,24 @@
     };
     const commentsList = () => {
       let noComments = "There are no comments";
-      const allComments = comments.map((comment) => /* @__PURE__ */ import_react3.default.createElement("li", { key: comment.id, className: "list-group-item" }, comment.text));
+      let renderDeleteButton = false;
+      let deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null);
+      const allComments = comments.map((comment) => {
+        if (comment.user_id == userId) {
+          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null, /* @__PURE__ */ import_react3.default.createElement(
+            "button",
+            {
+              type: "button",
+              className: "btn btn-outline-danger btn-sm",
+              onClick: () => deleteComment(comment.id)
+            },
+            "Delete comment"
+          ));
+        } else {
+          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null);
+        }
+        return /* @__PURE__ */ import_react3.default.createElement("li", { key: comment.id, className: "list-group-item" }, comment.text, deleteButton);
+      });
       commentsListRes = comments.length >= 0 ? allComments : noComments;
       return commentsListRes;
     };
@@ -36540,17 +36806,17 @@
         onClick: deleteDiscussion
       },
       "Delete Discussion"
-    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList(), /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId" }, "User ID"), /* @__PURE__ */ import_react3.default.createElement(
+    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList(), /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
       "input",
       {
-        type: "text",
+        type: "number",
         name: "userID",
         id: "commentUserId",
-        className: "form-control",
-        required: true,
-        onChange: (event) => onChange(event, setUserId)
+        readOnly: true,
+        className: "form-control-plaintext",
+        placeholder: userId
       }
-    )), /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentText" }, "Your comment here"), /* @__PURE__ */ import_react3.default.createElement(
+    ))), /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentText" }, "Your comment here"), /* @__PURE__ */ import_react3.default.createElement(
       "textarea",
       {
         type: "text",
@@ -36651,7 +36917,11 @@
   var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(Home_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussions", element: /* @__PURE__ */ import_react5.default.createElement(Discussions_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion/:id", element: /* @__PURE__ */ import_react5.default.createElement(Discussion_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion", element: /* @__PURE__ */ import_react5.default.createElement(NewDiscussion_default, null) })));
 
   // app/javascript/components/App.jsx
-  var App_default = (props) => /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
+  var import_react_client_session3 = __toESM(require_App());
+  function App(props) {
+    return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
+  }
+  var App_default = App;
 
   // app/javascript/components/index.jsx
   document.addEventListener("turbo:load", () => {

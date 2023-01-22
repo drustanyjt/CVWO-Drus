@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ReactSession } from "react-client-session";
 
 const Discussion = () => {
+    // console.log(ReactSession.get("user_id"));
     const params = useParams();
     const navigate = useNavigate();
     const [discussion, setDiscussion] = useState({ body: ""});
     const [comments, setComment] = useState([]);
     const [text, setText] = useState("");
-    const [userId, setUserId] = useState("");
+    const [userId, setUserId] = useState(0);
 
+    useEffect(() => {
+        setUserId(ReactSession.get("user_id"));
+    })
 
     useEffect(() => {
         const url = `/api/v1/discussions/show/${params.id}`;
@@ -57,8 +62,8 @@ const Discussion = () => {
             },
             body: JSON.stringify(jsonBody),
         }).then((res) => {
-            console.log("raw response");
-            console.log(res);
+            // console.log("raw response");
+            // console.log(res);
             if (res.ok) {
                 return res.json();
             }
@@ -66,7 +71,7 @@ const Discussion = () => {
         }).then((res) => {
             console.log("Json res");
             console.log(res);
-            console.log(res.id);
+            // console.log(res.id);
             
             // fetchComments();
             window.location.reload(false);
@@ -78,6 +83,26 @@ const Discussion = () => {
     const addHtmlEntities = (str) => {
         return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/\n/g, "<br> <br>");
     };
+
+    const deleteComment = (comment_id) => {
+        const url = `/api/v1/comments/destroy/${comment_id}`;
+        
+        fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+            throw new Error("Network response was not ok");
+        })
+        .then(window.location.reload(false))
+        .catch((err) => console.log(err.message));
+
+    }
 
     const deleteDiscussion = () => {
         const url = `/api/v1/discussions/destroy/${params.id}`;
@@ -101,12 +126,31 @@ const Discussion = () => {
 
     const commentsList = () => {
         let noComments = "There are no comments";
-        
-        const allComments = comments.map((comment) => (
+        let renderDeleteButton = false; 
+        let deleteButton = <div />;
+        const allComments = comments.map((comment) => {
+            
+            if (comment.user_id == userId) {
+                deleteButton = (
+                    <div>
+                        <button
+                            type="button"
+                            className="btn btn-outline-danger btn-sm"
+                            onClick={() => deleteComment(comment.id)}>
+                                Delete comment 
+                        </button>
+                    </div>
+                );
+            } else {
+                deleteButton = <div />;
+            }
+            
+            return (
             <li key={comment.id} className="list-group-item">
-               {comment.text} 
-            </li>
-        )) 
+               {comment.text}
+                {deleteButton}
+            </li>);
+            }) 
         commentsListRes = comments.length >= 0 ? allComments : noComments;
 
         return commentsListRes;
@@ -156,15 +200,18 @@ const Discussion = () => {
                         <li key={0} className="list-group-item">
                             <h5 className="mb-2">Leave a comment...</h5>
                             <form onSubmit={onSubmit}>
-                                <div className="form-group">
-                                    <label htmlFor="commentUserId">User ID</label>
+                                <div className="form-group row">
+                                    <label htmlFor="commentUserId" className="col-sm-1 col-form-label">User ID:</label>
+                                    <div className="col-sm-11">
                                     <input
-                                        type="text"
+                                        type="number"
                                         name="userID"
                                         id="commentUserId"
-                                        className="form-control"
-                                        required
-                                        onChange={(event) => onChange(event, setUserId)} />
+                                        readOnly
+                                        className="form-control-plaintext"
+                                        placeholder={userId}
+                                         />
+                                    </div>
                                 </div>
                                 <label htmlFor="commentText">Your comment here</label>
                                 <textarea
