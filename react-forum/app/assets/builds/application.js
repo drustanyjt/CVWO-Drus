@@ -36451,6 +36451,8 @@
     const navigate = useNavigate();
     const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
     const [comments, setComment] = (0, import_react3.useState)([]);
+    const [text, setText] = (0, import_react3.useState)("");
+    const [userId, setUserId] = (0, import_react3.useState)("");
     (0, import_react3.useEffect)(() => {
       const url = `/api/v1/discussions/show/${params.id}`;
       fetch(url).then((res) => {
@@ -36459,7 +36461,7 @@
         throw new Error("Network response not ok!");
       }).then((res) => setDiscussion(res)).catch(() => navigate("/discussions"));
     }, [params.id]);
-    (0, import_react3.useEffect)(() => {
+    const fetchComments = () => (0, import_react3.useEffect)(() => {
       const url = `/api/v1/comments/show/${params.id}`;
       fetch(url).then((res) => {
         if (res.ok)
@@ -36467,8 +36469,45 @@
         throw new Error("Network response not ok!");
       }).then((res) => setComment(res)).catch(() => navigate("/"));
     }, [params.id]);
+    fetchComments();
+    const onChange = (event, setFunction) => {
+      setFunction(event.target.value);
+    };
+    const onSubmit = (event) => {
+      event.preventDefault();
+      const url = "/api/v1/comments/create";
+      if (text.length == 0) {
+        return;
+      }
+      const jsonBody = {
+        discussion_id: params.id,
+        user_id: userId,
+        text: addHtmlEntities(text)
+      };
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(jsonBody)
+      }).then((res) => {
+        console.log("raw response");
+        console.log(res);
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Network response was not ok.");
+      }).then((res) => {
+        console.log("Json res");
+        console.log(res);
+        console.log(res.id);
+        window.location.reload(false);
+      }).catch((error2) => {
+        console.log(error2.message);
+      });
+    };
     const addHtmlEntities = (str) => {
-      return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+      return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/\n/g, "<br> <br>");
     };
     const deleteDiscussion = () => {
       const url = `/api/v1/discussions/destroy/${params.id}`;
@@ -36485,18 +36524,13 @@
       }).then(() => navigate("/discussions")).catch((err) => console.log(err.message));
     };
     const commentsList = () => {
-      let commentsListRes = "There are no comments";
-      const demoComments = [
-        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I hate really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures."),
-        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures."),
-        /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, "I really like Mathematics as well maybe one day when I am a 200 year old tortoise with a broken back and a knack for eating pulled chicken everyday as if it was my last meal. I will strive to live for a hundered more years, whther you like it or not even if you do not support me. I will be a master of improvisation, a skilled chef at the  art of making nonsensical words come together as if they were poems, just likt the michelin-starred chefs using rubbish to make treasures.")
-      ];
-      const allComments = comments.map((comment) => /* @__PURE__ */ import_react3.default.createElement("li", { className: "list-group-item" }, comment.text));
-      commentsListRes = comments.length >= 0 ? allComments : demoComments;
+      let noComments = "There are no comments";
+      const allComments = comments.map((comment) => /* @__PURE__ */ import_react3.default.createElement("li", { key: comment.id, className: "list-group-item" }, comment.text));
+      commentsListRes = comments.length >= 0 ? allComments : noComments;
       return commentsListRes;
     };
     const discussionBody = addHtmlEntities(discussion.body);
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { class: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { class: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { class: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-8" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-8" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
       __html: `${discussionBody}`
     } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-4" }, /* @__PURE__ */ import_react3.default.createElement(
       "button",
@@ -36506,7 +36540,28 @@
         onClick: deleteDiscussion
       },
       "Delete Discussion"
-    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList()))), /* @__PURE__ */ import_react3.default.createElement(Link, { to: "/discussions", className: "btn btn-link" }, "Back to discussions")));
+    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList(), /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId" }, "User ID"), /* @__PURE__ */ import_react3.default.createElement(
+      "input",
+      {
+        type: "text",
+        name: "userID",
+        id: "commentUserId",
+        className: "form-control",
+        required: true,
+        onChange: (event) => onChange(event, setUserId)
+      }
+    )), /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentText" }, "Your comment here"), /* @__PURE__ */ import_react3.default.createElement(
+      "textarea",
+      {
+        type: "text",
+        name: "text",
+        id: "commentText",
+        rows: "3",
+        className: "form-control",
+        required: true,
+        onChange: (event) => onChange(event, setText)
+      }
+    ), /* @__PURE__ */ import_react3.default.createElement("button", { type: "submit", className: "btn custom-button mt-2" }, "Comment!")))))), /* @__PURE__ */ import_react3.default.createElement(Link, { to: "/discussions", className: "btn btn-link" }, "Back to discussions")));
   };
   var Discussion_default = Discussion;
 
@@ -36537,7 +36592,6 @@
         title,
         body: stripHtmlEntities(body)
       };
-      ;
       fetch(url, {
         method: "POST",
         headers: {

@@ -15,7 +15,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def show
-    comments = Comment.where("discussion_id = ?", params[:discussion_id]).order(created_at: :desc)
+    comments = Comment.where("discussion_id = ?", params[:discussion_id]).order(:created_at)
     render json: comments 
   end
 
@@ -26,7 +26,7 @@ class Api::V1::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:text, :user_id, :comment_id)
+    params.require(:comment).permit(:text, :user_id, :discussion_id)
   end
 
   def set_comment

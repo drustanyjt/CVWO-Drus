@@ -34,7 +34,7 @@ const NewDiscussion = () => {
         {
             title,
             body: stripHtmlEntities(body),
-        };;
+        };
 
         // const token = document.head.querySelector('meta[name="csrf-token"]').textContent;
         // leads to an error
