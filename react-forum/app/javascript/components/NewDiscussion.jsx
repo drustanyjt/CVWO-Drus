@@ -29,11 +29,12 @@ const NewDiscussion = () => {
             return;
         }
 
-        const jsonBody = author.length > 0 ? 
+        const jsonBody = userName.length > 0 ? 
         {
             title,
-            author,
+            author: userName,
             body: stripHtmlEntities(body),
+            user_id: userId,
         } :
         {
             title,
@@ -91,8 +92,8 @@ const NewDiscussion = () => {
                                 name="author"
                                 id="discussionAuthor"
                                 className="form-control"
-                                onChange={(event) => onChange(event, setAuthor)}
-                                readonly />
+                                placeholder={userName}
+                                disabled />
                         </div>
                         
                         <label htmlFor="discussionBody">Discussion body</label>

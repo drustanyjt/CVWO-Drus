@@ -36850,10 +36850,11 @@
       if (title.length == 0 || body.length == 0) {
         return;
       }
-      const jsonBody = author.length > 0 ? {
+      const jsonBody = userName.length > 0 ? {
         title,
-        author,
-        body: stripHtmlEntities(body)
+        author: userName,
+        body: stripHtmlEntities(body),
+        user_id: userId
       } : {
         title,
         body: stripHtmlEntities(body)
@@ -36897,8 +36898,8 @@
         name: "author",
         id: "discussionAuthor",
         className: "form-control",
-        onChange: (event) => onChange(event, setAuthor),
-        readonly: true
+        placeholder: userName,
+        disabled: true
       }
     )), /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "discussionBody" }, "Discussion body"), /* @__PURE__ */ import_react4.default.createElement(
       "textarea",
