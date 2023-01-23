@@ -36687,10 +36687,7 @@
     const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
     const [comments, setComment] = (0, import_react3.useState)([]);
     const [text, setText] = (0, import_react3.useState)("");
-    const [userId, setUserId] = (0, import_react3.useState)(0);
-    (0, import_react3.useEffect)(() => {
-      setUserId(import_react_client_session2.ReactSession.get("user_id"));
-    });
+    const userId = import_react_client_session2.ReactSession.get("user_id");
     (0, import_react3.useEffect)(() => {
       const url = `/api/v1/discussions/show/${params.id}`;
       fetch(url).then((res) => {
@@ -36698,16 +36695,18 @@
           return res.json();
         throw new Error("Network response not ok!");
       }).then((res) => setDiscussion(res)).catch(() => navigate("/discussions"));
+      fetchComments();
     }, [params.id]);
-    const fetchComments = () => (0, import_react3.useEffect)(() => {
+    const fetchComments = () => {
       const url = `/api/v1/comments/show/${params.id}`;
       fetch(url).then((res) => {
         if (res.ok)
           return res.json();
         throw new Error("Network response not ok!");
-      }).then((res) => setComment(res)).catch(() => navigate("/"));
-    }, [params.id]);
-    fetchComments();
+      }).then((res) => {
+        setComment(commentsList(res));
+      }).catch(() => navigate("/"));
+    };
     const onChange = (event, setFunction) => {
       setFunction(event.target.value);
     };
@@ -36734,9 +36733,8 @@
         }
         throw new Error("Network response was not ok.");
       }).then((res) => {
-        console.log("Json res");
-        console.log(res);
-        window.location.reload(false);
+        fetchComments();
+        event.target.reset();
       }).catch((error2) => {
         console.log(error2.message);
       });
@@ -36756,7 +36754,7 @@
           return res.json();
         }
         throw new Error("Network response was not ok");
-      }).then(window.location.reload(false)).catch((err) => console.log(err.message));
+      }).then(() => fetchComments()).catch((err) => console.log(err.message));
     };
     const deleteDiscussion = () => {
       const url = `/api/v1/discussions/destroy/${params.id}`;
@@ -36772,13 +36770,12 @@
         throw new Error("Network response was not ok");
       }).then(() => navigate("/discussions")).catch((err) => console.log(err.message));
     };
-    const commentsList = () => {
+    const commentsList = (comments2) => {
       let noComments = "There are no comments";
-      let renderDeleteButton = false;
       let deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null);
-      const allComments = comments.map((comment) => {
+      const allComments = comments2.map((comment) => {
         if (comment.user_id == userId) {
-          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null, /* @__PURE__ */ import_react3.default.createElement(
+          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-2" }, /* @__PURE__ */ import_react3.default.createElement(
             "button",
             {
               type: "button",
@@ -36788,11 +36785,11 @@
             "Delete comment"
           ));
         } else {
-          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null);
+          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-2" });
         }
-        return /* @__PURE__ */ import_react3.default.createElement("li", { key: comment.id, className: "list-group-item" }, comment.text, deleteButton);
+        return /* @__PURE__ */ import_react3.default.createElement("li", { key: comment.id, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-10" }, comment.text), deleteButton));
       });
-      commentsListRes = comments.length >= 0 ? allComments : noComments;
+      commentsListRes = comments2.length >= 0 ? allComments : noComments;
       return commentsListRes;
     };
     const discussionBody = addHtmlEntities(discussion.body);
@@ -36806,7 +36803,7 @@
         onClick: deleteDiscussion
       },
       "Delete Discussion"
-    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), commentsList(), /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
+    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), comments, /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
       "input",
       {
         type: "number",

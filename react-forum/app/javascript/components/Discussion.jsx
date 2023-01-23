@@ -9,11 +9,9 @@ const Discussion = () => {
     const [discussion, setDiscussion] = useState({ body: ""});
     const [comments, setComment] = useState([]);
     const [text, setText] = useState("");
-    const [userId, setUserId] = useState(0);
 
-    useEffect(() => {
-        setUserId(ReactSession.get("user_id"));
-    })
+
+    const userId = ReactSession.get("user_id");
 
     useEffect(() => {
         const url = `/api/v1/discussions/show/${params.id}`;
@@ -24,19 +22,22 @@ const Discussion = () => {
             })
             .then((res) => setDiscussion(res))
             .catch(() => navigate("/discussions"));
+        fetchComments();
     }, [params.id]);
 
-    const fetchComments = () => useEffect(() => {
+    const fetchComments = () => {
         const url = `/api/v1/comments/show/${params.id}`;
         fetch(url)
             .then((res) => {
                 if (res.ok) return res.json();
                 throw new Error("Network response not ok!");
             })
-            .then((res) => setComment(res))
+            .then((res) => {
+                setComment(commentsList(res));
+            })
             .catch(() => navigate("/"));
-    }, [params.id]);
-    fetchComments();
+    };
+
     const onChange = (event, setFunction) => {
         setFunction(event.target.value);
     }
@@ -62,19 +63,15 @@ const Discussion = () => {
             },
             body: JSON.stringify(jsonBody),
         }).then((res) => {
-            // console.log("raw response");
-            // console.log(res);
             if (res.ok) {
                 return res.json();
             }
             throw new Error("Network response was not ok.");
         }).then((res) => {
-            console.log("Json res");
-            console.log(res);
-            // console.log(res.id);
             
-            // fetchComments();
-            window.location.reload(false);
+            fetchComments();
+            event.target.reset();
+            // window.location.reload(false);
             // navigate(`/discussion/${params.id}`);
         }).catch((error) => {
             console.log(error.message);
@@ -99,7 +96,7 @@ const Discussion = () => {
             }
             throw new Error("Network response was not ok");
         })
-        .then(window.location.reload(false))
+        .then(() => fetchComments())
         .catch((err) => console.log(err.message));
 
     }
@@ -124,15 +121,15 @@ const Discussion = () => {
 
     }
 
-    const commentsList = () => {
+    const commentsList = (comments) => {
         let noComments = "There are no comments";
-        let renderDeleteButton = false; 
         let deleteButton = <div />;
         const allComments = comments.map((comment) => {
-            
+            // console.log(`This is comment.user_id ${comment.user_id}`); 
+            // console.log(`This is userId ${userId}`);
             if (comment.user_id == userId) {
                 deleteButton = (
-                    <div>
+                    <div className="col-sm-2">
                         <button
                             type="button"
                             className="btn btn-outline-danger btn-sm"
@@ -142,13 +139,17 @@ const Discussion = () => {
                     </div>
                 );
             } else {
-                deleteButton = <div />;
+                deleteButton = <div className="col-sm-2"/>;
             }
             
             return (
             <li key={comment.id} className="list-group-item">
-               {comment.text}
-                {deleteButton}
+               <div className="row">
+                    <div className="col-sm-10">
+                        {comment.text}
+                    </div>
+                    {deleteButton}
+               </div>
             </li>);
             }) 
         commentsListRes = comments.length >= 0 ? allComments : noComments;
@@ -196,7 +197,7 @@ const Discussion = () => {
                     <div className="col-sm-12 col-lg-12">
                         <ul className="list-group">
                         <h5 className="mb-2">Comments</h5>
-                        {commentsList()}
+                        {comments}
                         <li key={0} className="list-group-item">
                             <h5 className="mb-2">Leave a comment...</h5>
                             <form onSubmit={onSubmit}>
