@@ -23480,7 +23480,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { "default": obj };
       }
-      var ReactSession4 = function() {
+      var ReactSession5 = function() {
         var SESSION_OBJECT_NAME = "__react_session__";
         var COOKIE_EXPIRATION_DAYS = 7;
         var SessionWriter = null;
@@ -23638,7 +23638,7 @@
           set
         };
       }();
-      var _default = ReactSession4;
+      var _default = ReactSession5;
       exports["default"] = _default;
     }
   });
@@ -36830,11 +36830,14 @@
 
   // app/javascript/components/NewDiscussion.jsx
   var import_react4 = __toESM(require_react());
+  var import_react_client_session3 = __toESM(require_App());
   var NewDiscussion = () => {
     const navigate = useNavigate();
     const [title, setTitle] = (0, import_react4.useState)("");
     const [body, setBody] = (0, import_react4.useState)("");
     const [author, setAuthor] = (0, import_react4.useState)("");
+    const userId = import_react_client_session3.ReactSession.get("user_id");
+    const userName = import_react_client_session3.ReactSession.get("user_name");
     const stripHtmlEntities = (str) => {
       return String(str).replace(/\n/g, "<br> <br>").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     };
@@ -36894,7 +36897,8 @@
         name: "author",
         id: "discussionAuthor",
         className: "form-control",
-        onChange: (event) => onChange(event, setAuthor)
+        onChange: (event) => onChange(event, setAuthor),
+        readonly: true
       }
     )), /* @__PURE__ */ import_react4.default.createElement("label", { htmlFor: "discussionBody" }, "Discussion body"), /* @__PURE__ */ import_react4.default.createElement(
       "textarea",
@@ -36914,10 +36918,10 @@
   var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(Home_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussions", element: /* @__PURE__ */ import_react5.default.createElement(Discussions_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion/:id", element: /* @__PURE__ */ import_react5.default.createElement(Discussion_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion", element: /* @__PURE__ */ import_react5.default.createElement(NewDiscussion_default, null) })));
 
   // app/javascript/components/App.jsx
-  var import_react_client_session3 = __toESM(require_App());
+  var import_react_client_session4 = __toESM(require_App());
   function App(props) {
-    import_react_client_session3.ReactSession.set("user_name", "Anon");
-    import_react_client_session3.ReactSession.set("user_id", 1);
+    import_react_client_session4.ReactSession.set("user_name", "Anon");
+    import_react_client_session4.ReactSession.set("user_id", 1);
     return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
   }
   var App_default = App;

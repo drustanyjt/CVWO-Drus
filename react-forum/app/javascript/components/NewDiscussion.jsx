@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ReactSession } from "react-client-session";
 
 const NewDiscussion = () => {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [author, setAuthor] = useState("");
+    const userId = ReactSession.get("user_id");
+    const userName = ReactSession.get("user_name");
 
     const stripHtmlEntities = (str) => {
         return String(str)
@@ -16,7 +19,8 @@ const NewDiscussion = () => {
 
     const onChange = (event, setFunction) => {
         setFunction(event.target.value);
-    }
+    };
+
     const onSubmit = (event) => {
         event.preventDefault();
         const url = 'api/v1/discussions/create';
@@ -87,7 +91,8 @@ const NewDiscussion = () => {
                                 name="author"
                                 id="discussionAuthor"
                                 className="form-control"
-                                onChange={(event) => onChange(event, setAuthor)} />
+                                onChange={(event) => onChange(event, setAuthor)}
+                                readonly />
                         </div>
                         
                         <label htmlFor="discussionBody">Discussion body</label>
