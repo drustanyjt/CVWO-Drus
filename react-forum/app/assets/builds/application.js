@@ -36919,6 +36919,8 @@
   // app/javascript/components/App.jsx
   var import_react_client_session3 = __toESM(require_App());
   function App(props) {
+    import_react_client_session3.ReactSession.set("user_name", "Anon");
+    import_react_client_session3.ReactSession.set("user_id", 1);
     return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
   }
   var App_default = App;
