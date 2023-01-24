@@ -11,6 +11,7 @@ class Api::V1::UsersController < ApplicationController
       render json: User.find_by(name: params[:user][:name])
     else
       user = User.create!(user_params)
+      render json: user
       # render json: user.errors
     end
   end

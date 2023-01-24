@@ -36687,6 +36687,38 @@
     const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
     const [comments, setComment] = (0, import_react3.useState)([]);
     const [text, setText] = (0, import_react3.useState)("");
+    function deleteDiscussionButton(props) {
+      if (userId == 1) {
+        return loginButton();
+      } else if (userId != discussion.user_id) {
+        return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null);
+      } else {
+        return /* @__PURE__ */ import_react3.default.createElement(
+          "button",
+          {
+            type: "button",
+            className: "btn btn-danger",
+            onClick: deleteDiscussion
+          },
+          "Delete Discussion"
+        );
+      }
+    }
+    function loginButton(props) {
+      if (userId == 1) {
+        return /* @__PURE__ */ import_react3.default.createElement(
+          "button",
+          {
+            type: "button",
+            className: "btn btn-success",
+            onClick: () => navigate(`/`)
+          },
+          "Login"
+        );
+      } else {
+        return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null);
+      }
+    }
     const userId = import_react_client_session2.ReactSession.get("user_id");
     (0, import_react3.useEffect)(() => {
       const url = `/api/v1/discussions/show/${params.id}`;
@@ -36793,17 +36825,9 @@
       return commentsListRes;
     };
     const discussionBody = addHtmlEntities(discussion.body);
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-8" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-10" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
       __html: `${discussionBody}`
-    } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-4" }, /* @__PURE__ */ import_react3.default.createElement(
-      "button",
-      {
-        type: "button",
-        className: "btn btn-danger",
-        onClick: deleteDiscussion
-      },
-      "Delete Discussion"
-    ))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), comments, /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
+    } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-2" }, deleteDiscussionButton())), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), comments, /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
       "input",
       {
         type: "number",

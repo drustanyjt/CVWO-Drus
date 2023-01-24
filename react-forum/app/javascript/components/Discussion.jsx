@@ -10,6 +10,35 @@ const Discussion = () => {
     const [comments, setComment] = useState([]);
     const [text, setText] = useState("");
 
+    function deleteDiscussionButton(props) {
+        if (userId == 1) {
+            return loginButton();
+        } else if (userId != discussion.user_id) {
+            return <></>
+        } else {
+            return (
+                        <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={deleteDiscussion}
+                            >Delete Discussion</button>
+
+            )
+        } 
+    }
+
+    function loginButton(props) {
+        if (userId == 1) {
+            return (
+                <button
+                    type="button"
+                    className="btn btn-success"
+                    onClick={() => navigate(`/`)}>Login</button>
+            )
+        } else {
+            return <></>
+        }
+    }
 
     const userId = ReactSession.get("user_id");
 
@@ -179,18 +208,13 @@ const Discussion = () => {
             </div>
             <div className="container py-5">
                 <div className="row">
-                    <div className="col-sm-12 col-lg-8">
+                    <div className="col-sm-12 col-lg-10">
                         <div dangerouslySetInnerHTML={{
                             __html:`${discussionBody}`,
                             }} />
                     </div>
-                    <div className="col-sm-12 col-lg-4">
-                        <button
-                            type="button"
-                            className="btn btn-danger"
-                            onClick={deleteDiscussion}
-                            >Delete Discussion</button>
-                            
+                    <div className="col-sm-12 col-lg-2">
+                           {deleteDiscussionButton()} 
                     </div>
                 </div>
                 <div className="row">
