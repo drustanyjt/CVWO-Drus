@@ -15,10 +15,10 @@
 # User.create([{
 #     name: "Anon"
 # }])
-5.times do |j|
-    Comment.create([{
-        text: "Comment ##{j + 1}",
-        user_id: 1, 
-        discussion_id: 10,
-    }])
-end
+# 5.times do |j|
+#     Comment.create([{
+#         text: "Comment ##{j + 1}",
+#         user_id: 1, 
+#         discussion_id: 10,
+#     }])
+# end
