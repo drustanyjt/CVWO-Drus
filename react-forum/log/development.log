@@ -36718,3 +36718,146 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 1.1ms | Allocations: 7808)
 
 
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:15:48 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 647.7ms | Allocations: 27436)
+Completed 200 OK in 655ms (Views: 650.7ms | ActiveRecord: 0.0ms | Allocations: 30208)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 00:15:51 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "user"=>{"name"=>""}}
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:13:in `create'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", ""], ["created_at", "2023-01-24 16:15:51.316556"], ["updated_at", "2023-01-24 16:15:51.316556"]]
+  ↳ app/controllers/api/v1/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:13:in `create'
+Completed 200 OK in 43ms (Views: 0.5ms | ActiveRecord: 26.2ms | Allocations: 7839)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 00:15:51 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.9ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 3.1ms | Allocations: 5982)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:22:10 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 158.2ms | Allocations: 23712)
+Completed 200 OK in 165ms (Views: 160.5ms | ActiveRecord: 0.0ms | Allocations: 26485)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:23:35 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 3384)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 6109)
+
+
+  
+ActionView::Template::Error (The asset "apple-touch-icon.png" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= favicon_link_tag asset_path('apple-touch-icon.png') %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:24:37 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 80)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 11135)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 11821)
+
+
+  
+ActionView::Template::Error (undefined method `public_path' for #<ActionView::Base:0x0000000000c120>):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= favicon_link_tag public_path('apple-touch-icon.png') %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:25:48 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 80)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1635)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2300)
+
+
+  
+ActionView::Template::Error (undefined method `path' for #<ActionView::Base:0x0000000000c490>):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= favicon_link_tag path('apple-touch-icon.png') %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:25:57 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2433)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 3100)
+
+
+  
+ActionView::Template::Error (The asset "apple-touch-icon.png" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= favicon_link_tag 'apple-touch-icon.png' %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:26:32 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 156.6ms | Allocations: 27996)
+Completed 200 OK in 159ms (Views: 158.3ms | ActiveRecord: 0.0ms | Allocations: 28722)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 00:37:07 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 298.5ms | Allocations: 30634)
+Completed 200 OK in 306ms (Views: 301.0ms | ActiveRecord: 0.0ms | Allocations: 33407)
+
+
