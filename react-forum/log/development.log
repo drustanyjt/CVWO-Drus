@@ -37818,3 +37818,1389 @@ Processing by Api::V1::DiscussionsController#index as */*
 Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 1166)
 
 
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:14:25 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 469.4ms | Allocations: 71387)
+Completed 200 OK in 473ms (Views: 470.5ms | ActiveRecord: 0.0ms | Allocations: 74158)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:15:09 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 72.1ms | Allocations: 26518)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.0ms | Allocations: 29290)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:15:12 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aiken", "user"=>{"name"=>"Aiken"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 5557)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:15:12 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 5963)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:28:45 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 471.0ms | Allocations: 70546)
+Completed 200 OK in 473ms (Views: 471.8ms | ActiveRecord: 0.0ms | Allocations: 73318)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:28:45 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 8252)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:28:50 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aiken", "user"=>{"name"=>"Aiken"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 4363)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:28:50 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1165)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:28:53 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 3029)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 3260)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:28:53 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1172)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:29:57 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 200.4ms | Allocations: 42737)
+Completed 200 OK in 201ms (Views: 200.7ms | ActiveRecord: 0.0ms | Allocations: 42967)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:29:57 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1173)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:30:02 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aiken", "user"=>{"name"=>"Aiken"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1228)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:30:02 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1163)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:30:38 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 185.7ms | Allocations: 42714)
+Completed 200 OK in 186ms (Views: 186.2ms | ActiveRecord: 0.0ms | Allocations: 42942)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:30:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:31:17 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 186.6ms | Allocations: 43016)
+Completed 200 OK in 187ms (Views: 186.9ms | Allocations: 43244)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:31:17 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1333)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:31:27 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 180.6ms | Allocations: 42728)
+Completed 200 OK in 181ms (Views: 180.9ms | ActiveRecord: 0.0ms | Allocations: 42956)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:31:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:31:53 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 183.4ms | Allocations: 42781)
+Completed 200 OK in 184ms (Views: 183.7ms | ActiveRecord: 0.0ms | Allocations: 43011)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:31:53 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1173)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:31:56 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "user"=>{"name"=>""}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1250)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:31:56 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1163)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:32:48 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 196.0ms | Allocations: 42772)
+Completed 200 OK in 196ms (Views: 196.2ms | ActiveRecord: 0.0ms | Allocations: 43002)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:33:02 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 181.5ms | Allocations: 42753)
+Completed 200 OK in 182ms (Views: 181.8ms | ActiveRecord: 0.0ms | Allocations: 42981)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:34:10 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 182.2ms | Allocations: 42744)
+Completed 200 OK in 183ms (Views: 182.4ms | ActiveRecord: 0.0ms | Allocations: 42972)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:34:23 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 179.2ms | Allocations: 42757)
+Completed 200 OK in 180ms (Views: 179.5ms | ActiveRecord: 0.0ms | Allocations: 42986)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:36:54 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 180.5ms | Allocations: 42765)
+Completed 200 OK in 181ms (Views: 180.7ms | ActiveRecord: 0.0ms | Allocations: 42993)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:37:30 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"\"\"", "user"=>{"name"=>"\"\""}}
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "\"\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "\"\""], ["created_at", "2023-01-25 15:37:30.202876"], ["updated_at", "2023-01-25 15:37:30.202876"]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 3921)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:37:30 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1200)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:37:51 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 178.3ms | Allocations: 42753)
+Completed 200 OK in 179ms (Views: 178.5ms | Allocations: 42980)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:37:52 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "user"=>{"name"=>""}}
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1370)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:37:52 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1199)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:37:53 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:37:53 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1357)
+
+
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1804)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:37:56 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1174)
+
+
+Started DELETE "/api/v1/users/destroy/8" for 127.0.0.1 at 2023-01-25 23:37:59 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"8", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.5ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 8]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 8]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 6818)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:38:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 181.5ms | Allocations: 42817)
+Completed 200 OK in 182ms (Views: 181.7ms | ActiveRecord: 0.0ms | Allocations: 43045)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:38:16 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Anon", "user"=>{"name"=>"Anon"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1236)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:38:16 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1163)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:38:17 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:38:17 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1301)
+
+
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1771)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:38:18 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1165)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:38:39 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:38:39 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 788)
+
+
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 700)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:39:44 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 180.5ms | Allocations: 42807)
+Completed 200 OK in 181ms (Views: 180.7ms | ActiveRecord: 0.0ms | Allocations: 43035)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:39:45 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:39:45 +0800
+Processing by Api::V1::CommentsController#show as */*
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 701)
+
+
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 788)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:41:27 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 177.6ms | Allocations: 42743)
+Completed 200 OK in 178ms (Views: 177.8ms | ActiveRecord: 0.0ms | Allocations: 42970)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:41:27 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:41:27 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+Processing by Api::V1::CommentsController#show as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"discussion_id"=>"2"}
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 701)
+
+
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 788)
+
+
+Started POST "/api/v1/comments/create" for 127.0.0.1 at 2023-01-25 23:41:51 +0800
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"discussion_id"=>"2", "user_id"=>1, "text"=>"Anonymous comments cannot be deleted (without changing the HTML)", "comment"=>{"text"=>"Anonymous comments cannot be deleted (without changing the HTML)", "user_id"=>1, "discussion_id"=>"2"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "discussion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["text", "Anonymous comments cannot be deleted (without changing the HTML)"], ["user_id", 1], ["discussion_id", 2], ["created_at", "2023-01-25 15:41:51.899905"], ["updated_at", "2023-01-25 15:41:51.899905"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 5378)
+
+
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:41:51 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 918)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:42:23 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 176.3ms | Allocations: 42772)
+Completed 200 OK in 177ms (Views: 176.6ms | ActiveRecord: 0.0ms | Allocations: 42999)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:42:23 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:42:23 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+Processing by Api::V1::CommentsController#show as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"discussion_id"=>"2"}
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 701)
+
+
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 3019)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:42:24 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3142)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 3369)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:42:24 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:42:24 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 700)
+
+
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 907)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:43:00 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 176.2ms | Allocations: 42760)
+Completed 200 OK in 177ms (Views: 176.4ms | ActiveRecord: 0.0ms | Allocations: 42987)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:43:00 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:43:00 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 701)
+
+
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 907)
+
+
+Started GET "/discussion/2" for 127.0.0.1 at 2023-01-25 23:43:36 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussion/2"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 175.0ms | Allocations: 42773)
+Completed 200 OK in 175ms (Views: 175.2ms | ActiveRecord: 0.0ms | Allocations: 43000)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:43:36 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:43:36 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 701)
+
+
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 907)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:43:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1163)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:43:46 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aiken", "user"=>{"name"=>"Aiken"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1217)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:43:46 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1163)
+
+
+Started GET "/api/v1/discussions/show/1" for 127.0.0.1 at 2023-01-25 23:43:48 +0800
+Started GET "/api/v1/comments/show/1" for 127.0.0.1 at 2023-01-25 23:43:48 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"discussion_id"=>"1"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '1') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 698)
+
+
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1019)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:43:52 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 1164)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:43:55 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1215)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:43:55 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1163)
+
+
+Started GET "/api/v1/discussions/show/1" for 127.0.0.1 at 2023-01-25 23:43:58 +0800
+Started GET "/api/v1/comments/show/1" for 127.0.0.1 at 2023-01-25 23:43:58 +0800
+Processing by Api::V1::CommentsController#show as */*
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"discussion_id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '1') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 698)
+
+
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1019)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:44:00 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1163)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:44:01 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.6ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.8ms | Allocations: 14570)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:44:42 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1216)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:44:42 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1163)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:44:50 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.3ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms | Allocations: 3467)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:44:53 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.2ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms | Allocations: 3384)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:45:37 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3186)
+Completed 200 OK in 2ms (Views: 1.7ms | Allocations: 3678)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:45:37 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 4662)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:45:42 +0800
+  
+NoMethodError (undefined method `arity' for :comments:Symbol):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:45:49 +0800
+  
+NoMethodError (undefined method `arity' for :comments:Symbol):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:46:08 +0800
+  
+NoMethodError (undefined method `arity' for :comments:Symbol):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:46:18 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3180)
+Completed 200 OK in 2ms (Views: 1.8ms | Allocations: 3671)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:46:23 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aiken", "user"=>{"name"=>"Aiken"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aiken"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2618)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:46:23 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 4228)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:46:29 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Foxtrot", "user"=>{"name"=>"Foxtrot"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Foxtrot"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Foxtrot"], ["created_at", "2023-01-25 15:46:29.969268"], ["updated_at", "2023-01-25 15:46:29.969268"]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 2832)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:46:29 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1162)
+
+
+Started DELETE "/api/v1/users/destroy/11" for 127.0.0.1 at 2023-01-25 23:46:31 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.1ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 4.4ms | Allocations: 6298)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:46:33 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1215)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:46:33 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:46:34 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.3ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms | Allocations: 3394)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:46:51 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 3177)
+Completed 200 OK in 2ms (Views: 2.1ms | Allocations: 3668)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:46:51 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 4659)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:46:55 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2555)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:46:55 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:46:56 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.2ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.5ms | Allocations: 6862)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:46:57 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.2ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 4119)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:47:13 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3180)
+Completed 200 OK in 2ms (Views: 1.8ms | Allocations: 3671)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:47:13 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 4659)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:47:17 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2555)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:47:17 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:47:17 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms | Allocations: 6084)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:48:39 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3183)
+Completed 200 OK in 2ms (Views: 1.7ms | Allocations: 3676)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:48:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 4660)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:48:43 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2556)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:48:43 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1166)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:48:44 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Delete All (0.2ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 4453)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:49:12 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Anon", "user"=>{"name"=>"Anon"}}
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2620)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:49:12 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 4239)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:49:15 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1220)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:49:15 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1164)
+
+
+Started DELETE "/api/v1/users/destroy/2" for 127.0.0.1 at 2023-01-25 23:49:16 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"2", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mComment Delete All (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."discussion_id" = ?[0m  [["discussion_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "discussions" WHERE "discussions"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 8305)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:49:22 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Aikeen", "user"=>{"name"=>"Aikeen"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Aikeen"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Aikeen"], ["created_at", "2023-01-25 15:49:22.603433"], ["updated_at", "2023-01-25 15:49:22.603433"]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `create'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 2775)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:49:22 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 1024)
+
+
+Started DELETE "/api/v1/users/destroy/12" for 127.0.0.1 at 2023-01-25 23:49:24 +0800
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `set_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."user_id" = ?[0m  [["user_id", 12]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3016)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:50:02 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Anon", "user"=>{"name"=>"Anon"}}
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2503)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:02 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 3689)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:50:34 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Anon", "user"=>{"name"=>"Anon"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1218)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:34 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1022)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:50:35 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1322)
+
+
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:50:35 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 2875)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:37 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1024)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:50:39 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Anon", "user"=>{"name"=>"Anon"}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1216)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:39 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1022)
+
+
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:50:40 +0800
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:50:40 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Processing by Api::V1::CommentsController#show as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1099)
+
+
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 906)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:41 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1022)
+
+
+Started GET "/" for 127.0.0.1 at 2023-01-25 23:50:50 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 183.6ms | Allocations: 42873)
+Completed 200 OK in 184ms (Views: 184.1ms | ActiveRecord: 0.0ms | Allocations: 43367)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:50:53 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "user"=>{"name"=>""}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:13:in `create'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1219)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:53 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1023)
+
+
+Started GET "/api/v1/comments/show/2" for 127.0.0.1 at 2023-01-25 23:50:56 +0800
+Started GET "/api/v1/discussions/show/2" for 127.0.0.1 at 2023-01-25 23:50:56 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"2"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '2') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 932)
+
+
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 700)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:50:59 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1023)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2023-01-25 23:51:11 +0800
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "user"=>{"name"=>""}}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Anon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:13:in `create'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1216)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:51:11 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1024)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:52:28 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 180.9ms | Allocations: 42862)
+Completed 200 OK in 182ms (Views: 181.5ms | ActiveRecord: 0.0ms | Allocations: 43357)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:52:28 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1024)
+
+
+Started GET "/discussions" for 127.0.0.1 at 2023-01-25 23:52:53 +0800
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"discussions"}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3218)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 3445)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:52:53 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.1ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1023)
+
+
+Started GET "/api/v1/discussions/show/3" for 127.0.0.1 at 2023-01-25 23:52:56 +0800
+Started GET "/api/v1/comments/show/3" for 127.0.0.1 at 2023-01-25 23:52:56 +0800
+Processing by Api::V1::DiscussionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" WHERE "discussions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/discussions_controller.rb:32:in `set_discussion'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 700)
+
+
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"3"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '3') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 2364)
+
+
+Started POST "/api/v1/comments/create" for 127.0.0.1 at 2023-01-25 23:53:07 +0800
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"discussion_id"=>"3", "user_id"=>1, "text"=>"And you can never delete this comment", "comment"=>{"text"=>"And you can never delete this comment", "user_id"=>1, "discussion_id"=>"3"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "discussion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["text", "And you can never delete this comment"], ["user_id", 1], ["discussion_id", 3], ["created_at", "2023-01-25 15:53:07.745625"], ["updated_at", "2023-01-25 15:53:07.745625"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 2251)
+
+
+Started GET "/api/v1/comments/show/3" for 127.0.0.1 at 2023-01-25 23:53:07 +0800
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"discussion_id"=>"3"}
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE (discussion_id = '3') ORDER BY "comments"."created_at" ASC[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:19:in `show'
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1019)
+
+
+Started GET "/api/v1/discussions/index" for 127.0.0.1 at 2023-01-25 23:53:09 +0800
+Processing by Api::V1::DiscussionsController#index as */*
+  [1m[36mDiscussion Load (0.0ms)[0m  [1m[34mSELECT "discussions".* FROM "discussions" ORDER BY "discussions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/discussions_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1023)
+
+

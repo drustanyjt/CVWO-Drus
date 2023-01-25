@@ -12,7 +12,7 @@ const Counter = () => {
         event.preventDefault();
         const url = `/api/v1/users/create`;
         const jsonBody = {
-            name: userName,
+            name: userName.length > 0 ? userName : "Anon",
         }
         console.log(userName);
         fetch(url, {
@@ -42,14 +42,14 @@ const Counter = () => {
         <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
             <div className="jumbotron jumbotron-fluid bg-transparent">
             <div className="container secondary-color">
-                <h1 className="display-4">Not! Food Recipes</h1>
+                <h1 className="display-4">Drustan's Discussions</h1>
                 <p className="lead">
-                A BIG curated list of discussions for the best vim-made meals and react-delicacies.
+                Type your name and press login to get started! Or don't and see what happens.
                 </p>
                 <hr className="my-4" />
                 
                 <form onSubmit={storeUserInfo}>
-                    <div className="form-group row">
+                    <div className="form-group row mb-3">
                         <label htmlFor="inputUserName" className="col-sm-2 col-form-label">
                             Name:
                         </label>
@@ -59,11 +59,11 @@ const Counter = () => {
                         </div>
                     </div>
                     <button
-                    className="btn btn-lg custom-button"
+                    className="btn btn-lg btn-success"
                     role="button"
                     type="submit"
                     >
-                        View Discussions
+                    Login
                     </button>
                 </form>
                 <br />
@@ -71,13 +71,13 @@ const Counter = () => {
                 <br />
                 <br />
             </div>
-            <div className="container primary-color">
+            {/* <div className="container primary-color">
                 <p className="lead">
                 <button onClick={decrease} className="btn btn-lg counter-button">-</button>
                 <span> {count} </span>
                 <button onClick={increase} className="btn btn-lg counter-button">+</button>
                 </p>
-            </div>
+            </div> */}
             </div>
         </div>
     )

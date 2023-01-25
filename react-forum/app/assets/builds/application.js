@@ -23480,7 +23480,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : { "default": obj };
       }
-      var ReactSession5 = function() {
+      var ReactSession6 = function() {
         var SESSION_OBJECT_NAME = "__react_session__";
         var COOKIE_EXPIRATION_DAYS = 7;
         var SessionWriter = null;
@@ -23638,7 +23638,7 @@
           set
         };
       }();
-      var _default = ReactSession5;
+      var _default = ReactSession6;
       exports["default"] = _default;
     }
   });
@@ -36607,7 +36607,7 @@
       event.preventDefault();
       const url = `/api/v1/users/create`;
       const jsonBody = {
-        name: userName
+        name: userName.length > 0 ? userName : "Anon"
       };
       console.log(userName);
       fetch(url, {
@@ -36631,7 +36631,7 @@
         navigate(`/discussions`);
       });
     };
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Not! Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of discussions for the best vim-made meals and react-delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: storeUserInfo }, /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "inputUserName", className: "col-sm-2 col-form-label" }, "Name:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-sm-10" }, /* @__PURE__ */ import_react.default.createElement(
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Drustan's Discussions"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "Type your name and press login to get started! Or don't and see what happens."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: storeUserInfo }, /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group row mb-3" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "inputUserName", className: "col-sm-2 col-form-label" }, "Name:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-sm-10" }, /* @__PURE__ */ import_react.default.createElement(
       "input",
       {
         type: "string",
@@ -36643,20 +36643,22 @@
     ))), /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
-        className: "btn btn-lg custom-button",
+        className: "btn btn-lg btn-success",
         role: "button",
         type: "submit"
       },
-      "View Discussions"
-    )), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null)), /* @__PURE__ */ import_react.default.createElement("div", { className: "container primary-color" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, /* @__PURE__ */ import_react.default.createElement("button", { onClick: decrease, className: "btn btn-lg counter-button" }, "-"), /* @__PURE__ */ import_react.default.createElement("span", null, " ", count, " "), /* @__PURE__ */ import_react.default.createElement("button", { onClick: increase, className: "btn btn-lg counter-button" }, "+")))));
+      "Login"
+    )), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null))));
   };
   var Home_default = Counter;
 
   // app/javascript/components/Discussions.jsx
   var import_react2 = __toESM(require_react());
+  var import_react_client_session2 = __toESM(require_App());
   var Discussions = () => {
     const navigate = useNavigate();
     const [discussions, setDiscussions] = (0, import_react2.useState)([]);
+    const userId = import_react_client_session2.ReactSession.get("user_id");
     (0, import_react2.useEffect)(() => {
       const url = "/api/v1/discussions/index";
       fetch(url).then((res) => {
@@ -36666,6 +36668,34 @@
         throw new Error("Network response was not ok.");
       }).then((res) => setDiscussions(res)).catch(() => navigate("/"));
     }, []);
+    function deleteUserButton(props) {
+      if (userId == 1) {
+        return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null);
+      } else {
+        return /* @__PURE__ */ import_react2.default.createElement(
+          "button",
+          {
+            type: "button",
+            className: "btn btn-danger",
+            onClick: () => {
+              const url = `/api/v1/users/destroy/${userId}`;
+              fetch(url, {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json"
+                }
+              }).then((res) => {
+                if (res.ok) {
+                  return res.json();
+                }
+                throw new Error("Network response was not ok");
+              }).then(() => navigate("/")).catch((err) => console.log(err.message));
+            }
+          },
+          "Delete User"
+        );
+      }
+    }
     const allDiscussions = discussions.map((discussion, index) => /* @__PURE__ */ import_react2.default.createElement("div", { key: index, className: "col-md-6 col-lg-4" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card mb-4" }, /* @__PURE__ */ import_react2.default.createElement(
       "img",
       {
@@ -36675,19 +36705,21 @@
       }
     ), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, discussion.title), /* @__PURE__ */ import_react2.default.createElement(Link, { to: `/discussion/${discussion.id}`, className: "btn custom-button" }, "View Discussion")))));
     const noDiscussion = /* @__PURE__ */ import_react2.default.createElement("div", { className: "vw-100 vh-50 d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react2.default.createElement("h4", null, "No discussions yet. Why not ", /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion" }, "create one")));
-    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "We\u2019ve pulled together our most popular discussion, our latest additions, and our editor\u2019s picks, so there\u2019s sure to be something tempting for you to try."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-8" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, /* @__PURE__ */ import_react2.default.createElement("button", { className: "btn btn-danger" }, "Delete User"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion"), /* @__PURE__ */ import_react2.default.createElement("button", { className: "btn btn-danger" }, "Delete User")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
+    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "Pick a topic of discussion, or create one of your own! Note if you are not logged in you will not be able to delete your discussions or comments."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "row mb-3" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-8" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, deleteUserButton())), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
   };
   var Discussions_default = Discussions;
 
   // app/javascript/components/Discussion.jsx
   var import_react3 = __toESM(require_react());
-  var import_react_client_session2 = __toESM(require_App());
+  var import_react_client_session3 = __toESM(require_App());
   var Discussion = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [discussion, setDiscussion] = (0, import_react3.useState)({ body: "" });
     const [comments, setComment] = (0, import_react3.useState)([]);
     const [text, setText] = (0, import_react3.useState)("");
+    const userId = import_react_client_session3.ReactSession.get("user_id");
+    const userName = import_react_client_session3.ReactSession.get("user_name");
     function deleteDiscussionButton(props) {
       if (userId == 1) {
         return loginButton();
@@ -36720,7 +36752,6 @@
         return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null);
       }
     }
-    const userId = import_react_client_session2.ReactSession.get("user_id");
     (0, import_react3.useEffect)(() => {
       const url = `/api/v1/discussions/show/${params.id}`;
       fetch(url).then((res) => {
@@ -36807,8 +36838,8 @@
       let noComments = "There are no comments";
       let deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", null);
       const allComments = comments2.map((comment) => {
-        if (comment.user_id == userId) {
-          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-2" }, /* @__PURE__ */ import_react3.default.createElement(
+        if (comment.user_id != 1 && comment.user_id == userId) {
+          deleteButton = /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-2 text-end" }, /* @__PURE__ */ import_react3.default.createElement(
             "button",
             {
               type: "button",
@@ -36828,15 +36859,15 @@
     const discussionBody = addHtmlEntities(discussion.body);
     return /* @__PURE__ */ import_react3.default.createElement("div", { className: "" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "hero position-relative d-flex align-item-center justify-content-center" }, /* @__PURE__ */ import_react3.default.createElement("img", { src: discussion.image, alt: `${discussion.title} image`, className: "img-fluid position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "overlay bg-dark position-absolute" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "grid" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-4 position-relative text-white" }, discussion.title)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("h1", { className: "display-6 position-relative text-center text-white" }, "by ", discussion.author)))), /* @__PURE__ */ import_react3.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-10" }, /* @__PURE__ */ import_react3.default.createElement("div", { dangerouslySetInnerHTML: {
       __html: `${discussionBody}`
-    } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-2" }, deleteDiscussionButton())), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), comments, /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "User ID:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
+    } })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-2 text-end" }, deleteDiscussionButton())), /* @__PURE__ */ import_react3.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-12 col-lg-12" }, /* @__PURE__ */ import_react3.default.createElement("ul", { className: "list-group" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Comments"), comments, /* @__PURE__ */ import_react3.default.createElement("li", { key: 0, className: "list-group-item" }, /* @__PURE__ */ import_react3.default.createElement("h5", { className: "mb-2" }, "Leave a comment..."), /* @__PURE__ */ import_react3.default.createElement("form", { onSubmit }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentUserId", className: "col-sm-1 col-form-label" }, "Your Name:"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "col-sm-11" }, /* @__PURE__ */ import_react3.default.createElement(
       "input",
       {
         type: "number",
         name: "userID",
         id: "commentUserId",
-        readOnly: true,
+        disabled: true,
         className: "form-control-plaintext",
-        placeholder: userId
+        placeholder: userName
       }
     ))), /* @__PURE__ */ import_react3.default.createElement("label", { htmlFor: "commentText" }, "Your comment here"), /* @__PURE__ */ import_react3.default.createElement(
       "textarea",
@@ -36855,14 +36886,14 @@
 
   // app/javascript/components/NewDiscussion.jsx
   var import_react4 = __toESM(require_react());
-  var import_react_client_session3 = __toESM(require_App());
+  var import_react_client_session4 = __toESM(require_App());
   var NewDiscussion = () => {
     const navigate = useNavigate();
     const [title, setTitle] = (0, import_react4.useState)("");
     const [body, setBody] = (0, import_react4.useState)("");
     const [author, setAuthor] = (0, import_react4.useState)("");
-    const userId = import_react_client_session3.ReactSession.get("user_id");
-    const userName = import_react_client_session3.ReactSession.get("user_name");
+    const userId = import_react_client_session4.ReactSession.get("user_id");
+    const userName = import_react_client_session4.ReactSession.get("user_name");
     const stripHtmlEntities = (str) => {
       return String(str).replace(/\n/g, "<br> <br>").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     };
@@ -36944,10 +36975,10 @@
   var routes_default = /* @__PURE__ */ import_react5.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react5.default.createElement(Routes, null, /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react5.default.createElement(Home_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussions", element: /* @__PURE__ */ import_react5.default.createElement(Discussions_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion/:id", element: /* @__PURE__ */ import_react5.default.createElement(Discussion_default, null) }), /* @__PURE__ */ import_react5.default.createElement(Route, { path: "/discussion", element: /* @__PURE__ */ import_react5.default.createElement(NewDiscussion_default, null) })));
 
   // app/javascript/components/App.jsx
-  var import_react_client_session4 = __toESM(require_App());
+  var import_react_client_session5 = __toESM(require_App());
   function App(props) {
-    import_react_client_session4.ReactSession.set("user_name", "Anon");
-    import_react_client_session4.ReactSession.set("user_id", 1);
+    import_react_client_session5.ReactSession.set("user_name", "Anon");
+    import_react_client_session5.ReactSession.set("user_id", 1);
     return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, routes_default);
   }
   var App_default = App;

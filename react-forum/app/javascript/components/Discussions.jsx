@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ReactSession } from "react-client-session";
 
 const Discussions = () => {
     const navigate = useNavigate();
     const [discussions, setDiscussions] = useState([]);
+    const userId = ReactSession.get("user_id");
     useEffect(() => {
         const url = "/api/v1/discussions/index";
         fetch(url)
@@ -16,6 +18,39 @@ const Discussions = () => {
             .then((res) => setDiscussions(res))
             .catch(() => navigate("/"));
     }, []);
+    function deleteUserButton(props) {
+        if (userId == 1) {
+            return <></>;
+        } else {
+            return (
+                <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={
+                      () => {
+                        const url = `/api/v1/users/destroy/${userId}`;
+                            
+                        fetch(url, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        })
+                        .then((res) => {
+                            if (res.ok) {
+                                return res.json();
+                            }
+                            throw new Error("Network response was not ok");
+                        })
+                        .then(() => navigate("/"))
+                        .catch((err) => console.log(err.message));
+
+                      }
+                    }
+                    >Delete User</button>
+            )
+        } 
+    }
     const allDiscussions = discussions.map((discussion, index) => (
         <div key={index} className="col-md-6 col-lg-4">
           <div className="card mb-4">
@@ -47,40 +82,24 @@ const Discussions = () => {
             <div className="container py-5">
               <h1 className="display-4">Discussions for every occasion</h1>
               <p className="lead text-muted">
-                We’ve pulled together our most popular discussion, our latest
-                additions, and our editor’s picks, so there’s sure to be something
-                tempting for you to try.
+                Pick a topic of discussion, or create one of your own!
+                Note if you are not logged in you will not be able to
+                delete your discussions or comments.
               </p>
             </div>
           </section>
           <div className="py-5">
             <main className="container">
-              <div className="row">
-                <div className="col-md-8"/>
+              <div className="row mb-3">
                 <div className="col-md-2 text-end">
                   <Link to="/discussion" className="btn custom-button">
                     Create New Discussion
                   </Link>
                 </div>
+                <div className="col-md-8"/>
                 <div className="col-md-2 text-end">
-                  <button className="btn btn-danger">
-                    Delete User
-                  </button>
+                  {deleteUserButton()}
                 </div>
-              </div>
-              <div className="text-end mb-3">
-                <Link to="/discussion" className="btn custom-button">
-                  Create New Discussion
-                </Link>
-                <button className="btn btn-danger">
-                  Delete User
-                </button>
-                
-              </div>
-              <div className="text-end mb-3">
-                <Link to="/discussion" className="btn custom-button">
-                  Create New Discussion
-                </Link>
               </div>
               <div className="row">
                 {discussions.length > 0 ? allDiscussions : noDiscussion}

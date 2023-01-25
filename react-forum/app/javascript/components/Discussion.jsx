@@ -10,6 +10,10 @@ const Discussion = () => {
     const [comments, setComment] = useState([]);
     const [text, setText] = useState("");
 
+    const userId = ReactSession.get("user_id");
+    const userName = ReactSession.get("user_name");
+    
+
     function deleteDiscussionButton(props) {
         if (userId == 1) {
             return loginButton();
@@ -17,12 +21,11 @@ const Discussion = () => {
             return <></>
         } else {
             return (
-                        <button
-                            type="button"
-                            className="btn btn-danger"
-                            onClick={deleteDiscussion}
-                            >Delete Discussion</button>
-
+                <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={deleteDiscussion}
+                    >Delete Discussion</button>
             )
         } 
     }
@@ -40,7 +43,6 @@ const Discussion = () => {
         }
     }
 
-    const userId = ReactSession.get("user_id");
 
     useEffect(() => {
         const url = `/api/v1/discussions/show/${params.id}`;
@@ -156,9 +158,9 @@ const Discussion = () => {
         const allComments = comments.map((comment) => {
             // console.log(`This is comment.user_id ${comment.user_id}`); 
             // console.log(`This is userId ${userId}`);
-            if (comment.user_id == userId) {
+            if (comment.user_id != 1 && comment.user_id == userId) {
                 deleteButton = (
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 text-end">
                         <button
                             type="button"
                             className="btn btn-outline-danger btn-sm"
@@ -213,7 +215,7 @@ const Discussion = () => {
                             __html:`${discussionBody}`,
                             }} />
                     </div>
-                    <div className="col-sm-12 col-lg-2">
+                    <div className="col-sm-12 col-lg-2 text-end">
                            {deleteDiscussionButton()} 
                     </div>
                 </div>
@@ -226,15 +228,15 @@ const Discussion = () => {
                             <h5 className="mb-2">Leave a comment...</h5>
                             <form onSubmit={onSubmit}>
                                 <div className="form-group row">
-                                    <label htmlFor="commentUserId" className="col-sm-1 col-form-label">User ID:</label>
+                                    <label htmlFor="commentUserId" className="col-sm-1 col-form-label">Your Name:</label>
                                     <div className="col-sm-11">
                                     <input
                                         type="number"
                                         name="userID"
                                         id="commentUserId"
-                                        readOnly
+                                        disabled
                                         className="form-control-plaintext"
-                                        placeholder={userId}
+                                        placeholder={userName}
                                          />
                                     </div>
                                 </div>
