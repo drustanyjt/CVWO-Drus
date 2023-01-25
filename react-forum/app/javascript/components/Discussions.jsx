@@ -55,6 +55,28 @@ const Discussions = () => {
           </section>
           <div className="py-5">
             <main className="container">
+              <div className="row">
+                <div className="col-md-8"/>
+                <div className="col-md-2 text-end">
+                  <Link to="/discussion" className="btn custom-button">
+                    Create New Discussion
+                  </Link>
+                </div>
+                <div className="col-md-2 text-end">
+                  <button className="btn btn-danger">
+                    Delete User
+                  </button>
+                </div>
+              </div>
+              <div className="text-end mb-3">
+                <Link to="/discussion" className="btn custom-button">
+                  Create New Discussion
+                </Link>
+                <button className="btn btn-danger">
+                  Delete User
+                </button>
+                
+              </div>
               <div className="text-end mb-3">
                 <Link to="/discussion" className="btn custom-button">
                   Create New Discussion

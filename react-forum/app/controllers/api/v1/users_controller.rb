@@ -9,6 +9,8 @@ class Api::V1::UsersController < ApplicationController
     # user = User.create!(user_params)
     if User.exists?(:name => params[:user][:name])
       render json: User.find_by(name: params[:user][:name])
+    elsif params[:user][:name] == ""
+      render json: User.find_by(name: "Anon")
     else
       user = User.create!(user_params)
       render json: user

@@ -8,7 +8,8 @@ const Counter = () => {
     const navigate = useNavigate();
     const increase = () => setCount(count+1);
     const decrease = () => setCount(count-1);
-    const storeUserInfo = () => {
+    const storeUserInfo = (event) => {
+        event.preventDefault();
         const url = `/api/v1/users/create`;
         const jsonBody = {
             name: userName,
@@ -47,7 +48,7 @@ const Counter = () => {
                 </p>
                 <hr className="my-4" />
                 
-                <form>
+                <form onSubmit={storeUserInfo}>
                     <div className="form-group row">
                         <label htmlFor="inputUserName" className="col-sm-2 col-form-label">
                             Name:
@@ -57,16 +58,16 @@ const Counter = () => {
                             onChange={(e) => setUserName(e.target.value)}/>
                         </div>
                     </div>
+                    <button
+                    className="btn btn-lg custom-button"
+                    role="button"
+                    type="submit"
+                    >
+                        View Discussions
+                    </button>
                 </form>
                 <br />
 
-                <button
-                className="btn btn-lg custom-button"
-                role="button"
-                onClick={storeUserInfo}
-                >
-                View Discussions
-                </button>
                 <br />
                 <br />
             </div>

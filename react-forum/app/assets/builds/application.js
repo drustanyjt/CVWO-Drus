@@ -36603,7 +36603,8 @@
     const navigate = useNavigate();
     const increase = () => setCount(count + 1);
     const decrease = () => setCount(count - 1);
-    const storeUserInfo = () => {
+    const storeUserInfo = (event) => {
+      event.preventDefault();
       const url = `/api/v1/users/create`;
       const jsonBody = {
         name: userName
@@ -36630,7 +36631,7 @@
         navigate(`/discussions`);
       });
     };
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Not! Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of discussions for the best vim-made meals and react-delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement("form", null, /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "inputUserName", className: "col-sm-2 col-form-label" }, "Name:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-sm-10" }, /* @__PURE__ */ import_react.default.createElement(
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "vw-100 vh-100 primary-color d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "jumbotron jumbotron-fluid bg-transparent" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "container secondary-color" }, /* @__PURE__ */ import_react.default.createElement("h1", { className: "display-4" }, "Not! Food Recipes"), /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, "A BIG curated list of discussions for the best vim-made meals and react-delicacies."), /* @__PURE__ */ import_react.default.createElement("hr", { className: "my-4" }), /* @__PURE__ */ import_react.default.createElement("form", { onSubmit: storeUserInfo }, /* @__PURE__ */ import_react.default.createElement("div", { className: "form-group row" }, /* @__PURE__ */ import_react.default.createElement("label", { htmlFor: "inputUserName", className: "col-sm-2 col-form-label" }, "Name:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "col-sm-10" }, /* @__PURE__ */ import_react.default.createElement(
       "input",
       {
         type: "string",
@@ -36639,15 +36640,15 @@
         id: "inputUserName",
         onChange: (e) => setUserName(e.target.value)
       }
-    )))), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement(
+    ))), /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
         className: "btn btn-lg custom-button",
         role: "button",
-        onClick: storeUserInfo
+        type: "submit"
       },
       "View Discussions"
-    ), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null)), /* @__PURE__ */ import_react.default.createElement("div", { className: "container primary-color" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, /* @__PURE__ */ import_react.default.createElement("button", { onClick: decrease, className: "btn btn-lg counter-button" }, "-"), /* @__PURE__ */ import_react.default.createElement("span", null, " ", count, " "), /* @__PURE__ */ import_react.default.createElement("button", { onClick: increase, className: "btn btn-lg counter-button" }, "+")))));
+    )), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null), /* @__PURE__ */ import_react.default.createElement("br", null)), /* @__PURE__ */ import_react.default.createElement("div", { className: "container primary-color" }, /* @__PURE__ */ import_react.default.createElement("p", { className: "lead" }, /* @__PURE__ */ import_react.default.createElement("button", { onClick: decrease, className: "btn btn-lg counter-button" }, "-"), /* @__PURE__ */ import_react.default.createElement("span", null, " ", count, " "), /* @__PURE__ */ import_react.default.createElement("button", { onClick: increase, className: "btn btn-lg counter-button" }, "+")))));
   };
   var Home_default = Counter;
 
@@ -36674,7 +36675,7 @@
       }
     ), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-body" }, /* @__PURE__ */ import_react2.default.createElement("h5", { className: "card-title" }, discussion.title), /* @__PURE__ */ import_react2.default.createElement(Link, { to: `/discussion/${discussion.id}`, className: "btn custom-button" }, "View Discussion")))));
     const noDiscussion = /* @__PURE__ */ import_react2.default.createElement("div", { className: "vw-100 vh-50 d-flex align-items-center justify-content-center" }, /* @__PURE__ */ import_react2.default.createElement("h4", null, "No discussions yet. Why not ", /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion" }, "create one")));
-    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "We\u2019ve pulled together our most popular discussion, our latest additions, and our editor\u2019s picks, so there\u2019s sure to be something tempting for you to try."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
+    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("section", { className: "jumbotron jumbotron-fluid text-center" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "container py-5" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "display-4" }, "Discussions for every occasion"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "lead text-muted" }, "We\u2019ve pulled together our most popular discussion, our latest additions, and our editor\u2019s picks, so there\u2019s sure to be something tempting for you to try."))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "py-5" }, /* @__PURE__ */ import_react2.default.createElement("main", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-8" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "col-md-2 text-end" }, /* @__PURE__ */ import_react2.default.createElement("button", { className: "btn btn-danger" }, "Delete User"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion"), /* @__PURE__ */ import_react2.default.createElement("button", { className: "btn btn-danger" }, "Delete User")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "text-end mb-3" }, /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/discussion", className: "btn custom-button" }, "Create New Discussion")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "row" }, discussions.length > 0 ? allDiscussions : noDiscussion), /* @__PURE__ */ import_react2.default.createElement(Link, { to: "/", className: "btn btn-link" }, "Home"))));
   };
   var Discussions_default = Discussions;
 
